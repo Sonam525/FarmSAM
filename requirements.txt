@@ -1,0 +1,28 @@
+# Core
+numpy<2.0
+torch
+torchvision
+transformers>=4.56.0          # SAM3 (Sam3TrackerVideoModel) + DINOv3 require a recent transformers
+accelerate
+timm                          # TinyViT-21M-512 student backbone
+huggingface_hub
+
+# Vision / IO
+opencv-python-headless
+Pillow
+
+# Metrics / ML utilities
+scikit-learn
+motmetrics                    # MOTA / IDF1 tracking evaluation
+mlflow                        # experiment tracking (optional, best-effort in notebooks)
+
+# Plotting
+matplotlib
+seaborn
+
+# Notes:
+#  - Notebooks were developed on Databricks (A10 GPU). `dbutils` calls and
+#    `/dbfs/...` mount paths are Databricks-specific; adapt them when running
+#    elsewhere.
+#  - SAM3 (facebook/sam3) and DINOv3 weights are pulled from the Hugging Face Hub
+#    and may require accepting model terms + a HF access token.

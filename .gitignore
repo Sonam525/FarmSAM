@@ -1,0 +1,50 @@
+# Jupyter
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# Model artifacts / checkpoints / features (large, not for VCS)
+*.pt
+*.pth
+*.onnx
+*.engine
+*.ckpt
+
+# Data (private dataset — never commit)
+data/
+Decoded Frames/
+All Cropped Frames/
+All Embeddings*/
+FPN_Features/
+Backbone_Features/
+Features/
+Masks/
+Mask coordinates/
+
+# Generated outputs / figures / metrics
+Figures*/
+Metrics/
+*.json.bak
+
+# Credentials / secrets (defensive — never commit)
+*.env
+.env
+secrets*
+*token*
+*credentials*
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Claude Code local config
+.claude/
