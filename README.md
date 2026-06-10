@@ -133,10 +133,10 @@ If you use this code, please cite the accompanying paper (details to be added on
 
 ```bibtex
 @misc{sam3_dinov3_distillation,
-  title  = {Efficient Longitudinal Behaviour Analysis via SAM3 Distillation and DINOv3-Tiny},
-  author = {Sonam},
+  title  = {Lightweight Distillation of SAM 3 and DINOv3 for Edge-Deployable Individual-Level Livestock Monitoring and Longitudinal Visual Analytics},
+  author = {Haiyu Yang, Miel Hostens},
   year   = {2026},
-  note   = {https://github.com/Sonam525}
+  note   = {[https://github.com/Sonam525](https://arxiv.org/abs/2604.27128)}
 }
 ```
 
