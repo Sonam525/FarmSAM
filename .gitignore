@@ -1,6 +1,5 @@
 # Jupyter
 .ipynb_checkpoints/
-*/.ipynb_checkpoints/*
 
 # Python
 __pycache__/
@@ -10,41 +9,28 @@ __pycache__/
 venv/
 env/
 
-# Model artifacts / checkpoints / features (large, not for VCS)
+# Weights never go in git; they live on Hugging Face
 *.pt
 *.pth
 *.onnx
 *.engine
 *.ckpt
+*.safetensors
 
-# Data (private dataset — never commit)
-data/
-Decoded Frames/
-All Cropped Frames/
-All Embeddings*/
-FPN_Features/
-Backbone_Features/
-Features/
-Masks/
-Mask coordinates/
+# Data never goes in git
+/data/
+*.mp4
+*.avi
 
-# Generated outputs / figures / metrics
-Figures*/
-Metrics/
-*.json.bak
-
-# Credentials / secrets (defensive — never commit)
+# Credentials
 *.env
 .env
 secrets*
-*token*
 *credentials*
 
-# OS / editor
+# OS and editor
 .DS_Store
 Thumbs.db
 .vscode/
 .idea/
-
-# Claude Code local config
 .claude/
