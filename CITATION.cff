@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use this code or the checkpoints, please cite the preprint."
+title: "FarmSAM"
+repository-code: "https://github.com/Sonam525/FarmSAM"
+license: MIT
+authors:
+  - family-names: Yang
+    given-names: Haiyu
+    orcid: "https://orcid.org/0009-0007-5125-4958"
+  - family-names: Hostens
+    given-names: Miel
+    orcid: "https://orcid.org/0000-0001-5376-976X"
+preferred-citation:
+  type: article
+  title: "Lightweight Distillation of SAM 3 and DINOv3 for Edge-Deployable Individual-Level Livestock Monitoring and Longitudinal Visual Analytics"
+  authors:
+    - family-names: Yang
+      given-names: Haiyu
+    - family-names: Hostens
+      given-names: Miel
+  year: 2026
+  journal: "arXiv"
+  url: "https://arxiv.org/abs/2604.27128"
+  identifiers:
+    - type: other
+      value: "arXiv:2604.27128"
