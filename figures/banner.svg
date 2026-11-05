@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 300" width="1280" height="300" role="img" aria-label="FarmSAM: SAM 3's image backbone distilled into a compact student for pig and dairy-calf video tracking">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#16324a"/>
+      <stop offset="1" stop-color="#1f4d5c"/>
+    </linearGradient>
+    <pattern id="h" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="10" height="10" fill="#2a6f7f"/>
+      <rect width="5" height="10" fill="#37b6c9"/>
+    </pattern>
+    <style>
+      text { font-family: "Segoe UI", Helvetica, Arial, sans-serif; fill: #f4f8fa; }
+      .t { font-size: 76px; font-weight: 700; letter-spacing: -1px; }
+      .s { font-size: 25px; fill: #cfe2e8; }
+      .n { font-size: 31px; font-weight: 700; }
+      .l { font-size: 17px; fill: #cfe2e8; }
+    </style>
+  </defs>
+  <rect width="1280" height="300" rx="14" fill="url(#g)"/>
+  <text x="56" y="108" class="t">FarmSAM</text>
+  <text x="58" y="150" class="s">SAM 3's image backbone distilled into a compact student,</text>
+  <text x="58" y="181" class="s">benchmarked on pig and dairy-calf video tracking</text>
+  <g transform="translate(58,212)">
+    <rect width="358" height="66" rx="8" fill="#ffffff" fill-opacity=".09"/>
+    <text x="16" y="31" class="n">446.24 M → 40.66 M</text>
+    <text x="16" y="54" class="l">backbone parameters</text>
+  </g>
+  <g transform="translate(432,212)">
+    <rect width="358" height="66" rx="8" fill="#ffffff" fill-opacity=".09"/>
+    <text x="16" y="31" class="n">152.46 → 41.56 ms</text>
+    <text x="16" y="54" class="l">backbone latency, A10, 4 objects</text>
+  </g>
+  <g transform="translate(806,212)">
+    <rect width="416" height="66" rx="8" fill="#ffffff" fill-opacity=".09"/>
+    <text x="16" y="31" class="n">−12.62 HOTA on PigTrack</text>
+    <text x="16" y="54" class="l">against SAM 3: materially worse</text>
+  </g>
+  <g transform="translate(1000,42)">
+    <rect x="0" y="16" width="86" height="118" rx="6" fill="#0d2230" stroke="#6f93a3" stroke-width="2"/>
+    <text x="43" y="82" text-anchor="middle" font-size="17" style="fill:#cfe2e8">SAM 3</text>
+    <path d="M100 75 h42" stroke="#37b6c9" stroke-width="4"/>
+    <path d="M142 75 l-11 -8 v16 z" fill="#37b6c9"/>
+    <rect x="156" y="44" width="62" height="62" rx="6" fill="url(#h)" stroke="#bff0f7" stroke-width="2"/>
+  </g>
+</svg>
