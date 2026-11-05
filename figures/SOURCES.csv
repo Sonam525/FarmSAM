@@ -10,4 +10,4 @@ figure,source_pdf,source_sha256,note
 09_recipe.png,fig_recipe.pdf,a81059fdf50aaff91ce8fe91f076ed8dac6459bdde44fdd1b3c366d6126fe1c5,pointer to the unpublished supplement blanked; disclosure is in docs/DISCLOSURES.md
 10_pigtrack_scatter.png,fig_s_pigscatter.pdf,4c8047ac6856bb7442b7eed31b7d3c5169aafeca7d157fa39d68e6a9cbca96f6,rendered unchanged
 11_pigtrack_failure_example.png,fig_s_failure.pdf,211f0cb9c33b18e97d3368d5e2304475c4707179792af8fd324afaedf99e94a9,rendered unchanged
-12_pigtrack_best_example.png,fig_examples.pdf,37db8251318f60dda4440835c5e2df257eaf6175c6065b34c5c6e1c99ffd1b6d,PigTrack row and legend only; calf rows removed; calf column label blanked
+12_pigtrack_best_example.png,fig_examples.pdf,37db8251318f60dda4440835c5e2df257eaf6175c6065b34c5c6e1c99ffd1b6d,PigTrack row and legend only; calf rows removed; calf column label blanked; 'best of 25' replaced by 'smallest gap'

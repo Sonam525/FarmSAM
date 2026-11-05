@@ -1,6 +1,6 @@
 # PigTrack scene-coverage audit: results
 
-**EXPLORATORY and POST HOC. Not a registered result, not a claim for the paper, no manuscript or `BENCH_PROTOCOL.md` edit.** It informs the choice between (a) dropping PigTrack from the paper, (b) keeping it with a seen-versus-unfamiliar-scene analysis, (c) keeping it as a pre-specified boundary-condition result. It decides none of them. Frames and figures here are for analysis only.
+**EXPLORATORY and POST HOC. Not a registered result and not a claim of the paper.** It asks whether the PigTrack student's shortfall follows how well the training set covers each test scene. Figures here are for analysis only.
 
 Plan applied: `AUDIT_PLAN.md` (sha256 `801794b5883be609...`), frozen 2026-10-27T18:24:47Z, verified unchanged at 2026-10-27T18:36:36Z (all seven frozen files match). Seed 20261027, B = 10,000 bootstrap resamples, percentile 95% CI, mid-ranks for ties, n = 25 test sequences, **no multiplicity correction anywhere**. Every item not in the frozen plan is marked **"EXPLORATORY, added after seeing outcomes"**.
 

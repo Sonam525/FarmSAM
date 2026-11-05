@@ -44,7 +44,7 @@ GFLOPs are per frame at 4 objects. Total parameters sit next to backbone paramet
 
 | student | frames (train + selection) | epochs run / best | training time | best EMA val loss | per-patch cosine |
 |:---|---:|---:|---:|---:|---:|
-| Edinburgh student | 3,000 (2,400 + 600) | 90 / 75 (one A10) | not logged (A10; no recorded time; no estimate) |  | 0.7570 on the 4 test clips (480 frames); 0.7508 on the validation clip |
+| Edinburgh student | 3,000 (2,400 + 600) | 90 / 75 (one A10) | not logged (A10; no recorded time; no estimate) | 0.25042 (quoted from the development record; not re-read from the history file) | 0.7570 on the 4 test clips (480 frames); 0.7508 on the validation clip |
 | Edinburgh student (mined) | 3,627 (3,027 + 600) | 85 / 70 (one A100; early stopping) | 4.26 h (15342.1 s; job wall 4.457 h) | 0.24652 (−1.56 % against 0.25042) | 0.7555 on the validation clip (600 frames, fp32; the validation clip chose the checkpoint, so not independent; the published row's 0.7508 is a 120-frame subset, on which M gives 0.7555); not measured on the 4 test clips |
 | PigTrack student | 3,000 (2,626 + 374) | 47 / 32 (A100) | 1.95 h (7,003.4 s) | 0.3266 | 0.6807 (374 selection frames of 4 whole held-out sequences) |
 | PigTrack student without drop-path | 3,000 | 43 / 28 | 1.77 h (6,364.7 s) | — | 0.6745 |
@@ -193,13 +193,15 @@ C4 and C5 carry the EfficientSAM3 disclosure: run on an A10 under our common bf1
 
 <p align="center"><img src="../figures/11_pigtrack_failure_example.png" alt="PigTrack frames with tracker boxes" width="760"></p>
 
-<sub>Worst of the 25 test sequences for the PigTrack student, with overlays added. Frames: PigTrack, CC BY 4.0.</sub>
+<sub>Lowest HOTA of the 25 test sequences for the PigTrack student, and also the largest shortfall to SAM 3 (−36.88), with overlays added. Frames: PigTrack, CC BY 4.0.</sub>
 
 <p align="center"><img src="../figures/12_pigtrack_best_example.png" alt="PigTrack night frames with tracker boxes" width="760"></p>
 
-<sub>Best of the 25 for the PigTrack student, night sequence, with overlays added. The figure is a crop of a larger panel; the calf legend entry belongs to the part not shown. Frames: PigTrack, CC BY 4.0.</sub>
+<sub>Smallest shortfall to SAM 3 of the 25 test sequences (−1.10 HOTA), night sequence, with overlays added. It is not the highest-scoring sequence for the student: that is pigtrack0030 at 86.74. The figure is a crop of a larger panel; the calf legend entry belongs to the part not shown. Frames: PigTrack, CC BY 4.0.</sub>
 
 ## 5. Protocol D: detector in the loop
+
+The [protocol facts](DISCLOSURES.md#protocol-facts) on births and dead tracks apply to every row here.
 
 Detector: RF-DETR Small at 512. The threshold τ\* = 0.70 was frozen on PigTrack validation with SAM 3.
 
@@ -229,6 +231,8 @@ Detector: RF-DETR Small at 512. The threshold τ\* = 0.70 was frozen on PigTrack
 Births: [`results/protD_births.csv`](../results/protD_births.csv).
 
 ## 6. Dairy calves
+
+The 23 April dusk window was re-picked with a rule that used the reference pipeline's detector. See the [window disclosure](DISCLOSURES.md#23-april-dusk-window).
 
 Six 30-minute windows at 5 fps, 9,000 frames each, 4 calves, one overhead pen. 206,690 evaluable calf-frames.
 
@@ -288,6 +292,8 @@ No frame of 23 April appears in this repository. Those windows stay in the table
 <sub>Frame-level timeline of the two dusk windows. Quantities are seeded-track continuity, not identity accuracy.</sub>
 
 ## 7. Efficiency
+
+The [protocol facts](DISCLOSURES.md#protocol-facts) apply here too.
 
 **Every number in the first two tables is at 4 objects.** Input: calf window of the night of 22 April, 2304×1296 frames, 32 warm-up plus 500 timed frames, decode in the loop. For students the "model span" excludes the student, which runs outside the Hugging Face graph.
 
@@ -414,7 +420,7 @@ The registered sentences:
 - **P3 (inconclusive; governing contrast P3a; first value draw R, second draw R2):** 25 sequences do not resolve whether hard mining beats random selection of the same number of extra frames (ΔHOTA = -0.35 [95 % CI -2.02, +1.87] / +1.02 [95 % CI -0.83, +3.34]; one training run per arm); where one draw is resolved and the other is not, replication is not met; no claim about mining is made.
 - **P4 (materially worse):** On PigTrack (25 test sequences), in HOTA, with oracle-initialised prompts (Protocol A), a gap to the SAM 3 teacher remains after mining (ΔHOTA mined − SAM 3 = -13.66 [95 % CI -19.04, -8.90]) (one training run).
 - **P5a (inconclusive):** 25 sequences do not resolve the effect of adding 2,125 randomly chosen near-duplicate frames (ΔHOTA random − PigTrack student = -0.69 [95 % CI -2.22, +0.85]; one training run per arm).
-- **P5b (draw R2; qualifier rule; not a row of the registered sentence table, so no claim rests on it):** Adding 2,125 randomly chosen near-duplicate frames and the proportionally longer epochs: the random-frame student (draw R2, training seed 43) is less accurate than the base student (ΔHOTA random2 − PigTrack student = -2.06 [95 % CI -3.99, -0.11]; one training run per arm); the 95 % CI excludes zero (upper bound -0.11) but not the 1.0-point margin: the direction is resolved, a material difference is not. **Caveat that travels with this sentence (b1.8 item 2(a)):** R2 differs from PigTrack student in the 2,125 extra rows, the longer epochs and the training seed (43 against 42, hence a different initialisation of the layers not loaded from ImageNet), so P5b is not a one-factor contrast and is not an effect of the frames alone. It is one of seven verdict contrasts without multiplicity correction. (The display name of the arm is pending the naming decision of PT_MINING_RESULT.md section 11.)
+- **P5b (draw R2; qualifier rule; not a row of the registered sentence table, so no claim rests on it):** Adding 2,125 randomly chosen near-duplicate frames and the proportionally longer epochs: the random-frame student (draw R2, training seed 43) is less accurate than the base student (ΔHOTA random2 − PigTrack student = -2.06 [95 % CI -3.99, -0.11]; one training run per arm); the 95 % CI excludes zero (upper bound -0.11) but not the 1.0-point margin: the direction is resolved, a material difference is not. **Caveat that travels with this sentence (b1.8 item 2(a)):** R2 differs from PigTrack student in the 2,125 extra rows, the longer epochs and the training seed (43 against 42, hence a different initialisation of the layers not loaded from ImageNet), so P5b is not a one-factor contrast and is not an effect of the frames alone. It is one of seven verdict contrasts without multiplicity correction.
 
 <p align="center"><img src="../figures/08_mining.png" alt="Differences with and without extra frames" width="760"></p>
 
@@ -424,7 +430,7 @@ Fidelity, training and the diagnostics of the extra sets: [`mining_pigtrack_fide
 
 ### Dairy calves, first student and night-mined student
 
-Descriptive, one run each, no control. Point estimate, no interval computed: +11.48 points of identity-correct calf-time. Frames, selection, night share and training time changed together. The night-mined student made the reference masks.
+Descriptive, one run each, no control. Point estimate, no interval computed: +11.48 points of identity-correct calf-time. The first student's night failure that motivated the selection was found on 22 April, a development day that also supplies three of the six evaluation windows. Frames, selection, night share and training time changed together. The night-mined student made the reference masks.
 
 | quantity | first calf student | night-mined calf student |
 |:---|---:|---:|
@@ -444,7 +450,7 @@ Descriptive, one run each, no control. Point estimate, no interval computed: +11
 
 This is the only wording used for this experiment. It carries no label of direction. The disclosure block is in [DISCLOSURES.md](DISCLOSURES.md#edinburgh-mining-disclosure-block).
 
-> On the 4 Edinburgh test clips, pooled HOTA of the Edinburgh student retrained with 627 extra frames (Edinburgh student (mined): the 209 frames with the lowest Edinburgh student pig-cell cosine in each of three unused November clips; one training run, seed 42, A100) minus pooled HOTA of the published Edinburgh student (Edinburgh student) was +0.07921093325286677 (per clip +0.45153938655305126, +0.24365919707604178, -0.6163228892565229, -0.025580558435834178; DetA +0.008671135383551132, AssA +0.19399639473125774). The difference includes the extra frames, the training seed (the published student had none), the GPU, runtime and library change, local-disk data loading and 26 % more optimiser steps per epoch; there is no retrained baseline and no random-frame control, so it is not attributable to the selection of the extra frames. There is no noise reference in this experiment (a different pair, PigTrack's two random-frame students, differed by 1.37 pooled HOTA on 25 sequences from 9 pens; with n = 4 clips here, pooled retraining noise would be larger for a comparable per-clip spread). One training run; n = 4 clips, no confidence interval. A third of the extra frames (209) come from 2019_11_11_000016, a nearly static clip (99.7 % static frames) that is a near-copy of a training scene in SAM 3 feature space. The pool is three November clips, including 2019_11_11_000016 (annotations wrong) and 2019_11_05_000009 and 2019_11_15_000033 (annotations not used). Post hoc (requested after the Edinburgh and PigTrack results were known); attempt 1 for Edinburgh; Edinburgh never overrides PigTrack (BENCH_PROTOCOL section 11).
+> On the 4 Edinburgh test clips, pooled HOTA of the Edinburgh student retrained with 627 extra frames (Edinburgh student (mined): the 209 frames with the lowest Edinburgh student pig-cell cosine in each of three unused November clips; one training run, seed 42, A100) minus pooled HOTA of the published Edinburgh student (Edinburgh student) was +0.07921093325286677 (per clip +0.45153938655305126, +0.24365919707604178, -0.6163228892565229, -0.025580558435834178; DetA +0.008671135383551132, AssA +0.19399639473125774). The difference includes the extra frames, the training seed (the published student had none), the GPU, runtime and library change, local-disk data loading and 26 % more optimiser steps per epoch; there is no retrained baseline and no random-frame control, so it is not attributable to the selection of the extra frames. There is no noise reference in this experiment (a different pair, PigTrack's two random-frame students, differed by 1.37 pooled HOTA on 25 sequences from 9 pens; with n = 4 clips here, pooled retraining noise would be larger for a comparable per-clip spread). One training run; n = 4 clips, no confidence interval. A third of the extra frames (209) come from 2019_11_11_000016, a nearly static clip (99.7 % static frames) that is a near-copy of a training scene in SAM 3 feature space. The pool is three November clips, including 2019_11_11_000016 (annotations wrong) and 2019_11_05_000009 and 2019_11_15_000033 (annotations not used). Post hoc (requested after the Edinburgh and PigTrack results were known); attempt 1 for Edinburgh; Edinburgh never overrides PigTrack.
 
 Values: [`mining_edinburgh_pooled.csv`](../results/mining_edinburgh_pooled.csv), [`mining_edinburgh_per_clip.csv`](../results/mining_edinburgh_per_clip.csv).
 
@@ -455,7 +461,7 @@ Point estimates of stored means. Rows are not ranked against each other.
 | dataset | student minus comparator | difference | unit | label |
 |:---|:---|---:|---:|---:|
 | Edinburgh | Edinburgh student minus EdgeTAM | +2.84 | HOTA points, pooled, 4 clips | descriptive (n = 4, no interval) |
-| Edinburgh | Edinburgh student minus the EfficientSAM3 encoder | +16.05 | HOTA points | descriptive; encoder only; parity check failed (both parts of the disclosure, Section 1) |
+| Edinburgh | Edinburgh student minus the EfficientSAM3 encoder | +16.05 | HOTA points | descriptive; encoder only; parity check failed (both parts of the [disclosure](DISCLOSURES.md#efficientsam3-encoder)) |
 | Edinburgh | Edinburgh student minus SAM 2.1-small | −1.13 | HOTA points | descriptive |
 | Edinburgh | Edinburgh student minus SAM 2.1-tiny | −0.46 | HOTA points | descriptive |
 | PigTrack | PigTrack student minus EdgeTAM | +2.09 | HOTA points, 25 sequences | point estimate; not pre-specified; no interval |

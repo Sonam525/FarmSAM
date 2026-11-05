@@ -27,7 +27,7 @@
   </g>
   <g transform="translate(432,212)">
     <rect width="358" height="66" rx="8" fill="#ffffff" fill-opacity=".09"/>
-    <text x="16" y="31" class="n">152.46 → 41.56 ms</text>
+    <text x="16" y="31" class="n" style="font-size:27px">152.46 → 41.56–42.61 ms</text>
     <text x="16" y="54" class="l">backbone latency, A10, 4 objects</text>
   </g>
   <g transform="translate(806,212)">

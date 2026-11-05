@@ -2,7 +2,9 @@
 
 These blocks travel with the numbers they qualify. Where a table in [RESULTS.md](RESULTS.md) names a model below, the block applies.
 
-The blocks marked "as registered" are copied by script from the project's records. Only record keys were turned into model names in the sentences of RESULTS.md; the two long blocks below keep the keys as filed. `S-PT` is the PigTrack student, `S-Edi` the Edinburgh student, `S21` SAM 2.1-small, `T` SAM 3, `M` the student under test. Codes such as `b1.6`, `J7`, `DESIGN` and `REVIEW` point to the benchmark's dated protocol log, which is not in this repository.
+The blocks marked "as registered" are copied by script from the project's records. Only record keys were turned into model names in the sentences of RESULTS.md; the two long blocks below keep the keys as filed. `S-PT` is the PigTrack student, `S-Edi` the Edinburgh student, `S21` SAM 2.1-small, `T` SAM 3, `M` the student under test. Codes such as `b1.6`, `J7`, `DESIGN` and `REVIEW` point to the benchmark's dated protocol log, which is not in this repository. In those blocks "the user" means the first author.
+
+Two internal cross-references were removed from sentences in RESULTS.md: a note on a pending display name and a pointer to a protocol section. Nothing else in a registered sentence was changed.
 
 ## EfficientSAM3 encoder
 
@@ -25,7 +27,23 @@ The SAM 2.1-small calf row was added after the other calf results were known, an
 
 ## 23 April dusk window
 
-The 23 April dusk window was re-picked on 2026-10-20, because the seed of animal 0 in the first version sat on a floor patch. The new window is 20:52:13.000 to 21:22:12.8. 6,663 of its 9,000 frames (74 %) lie after 21:00, in the night phase; the pre-specified label "dusk" is kept.
+The 23 April dusk window was re-picked on 2026-10-20, because the seed of animal 0 in the first version sat on a floor patch. The re-pick used a rule that relied on the reference pipeline's detector. The new window is 20:52:13.000 to 21:22:12.8. 6,663 of its 9,000 frames (74 %) lie after 21:00, in the night phase; the pre-specified label "dusk" is kept.
+
+## Night mining
+
+The first calf student's night failure that motivated the night-mined selection was found on 22 April, a development day that also supplies three of the six evaluation windows. No frame of 22 or 23 April was a distillation target.
+
+## Protocol facts
+
+These apply to every tracking and efficiency table.
+
+- **Births.** transformers 5.2.0 `Sam2VideoModel` and `Sam3TrackerVideoModel` encode all objects' memories in one batch with `is_mask_from_pts = any(...)`, so on a birth frame every existing object's memory is encoded from its binarised mask. EdgeTAM encodes per object and is unaffected. The behaviour was kept unchanged for every model. Under Protocol D, on the 4 PigTrack test sequences of the birth probe, the effect is at most 0.1 pooled HOTA, in both directions.
+- **Dead tracks.** Under Protocol D a dead track stays in the session, so its compute cost is included.
+- **Runtime drift.** The published Edinburgh runs reproduce exactly on DBR 16.4 (torch 2.6.0+cu124) and drift by at most 0.33 MOTA per clip on the benchmark runtime DBR 17.3 (torch 2.7.0). On DBR 16.4 the teacher's features equal the stored distillation targets bit for bit. On DBR 17.3 their global cosine is 0.9977–0.9995 on 20 frames. Students trained under timm 1.0.25 and the benchmark resolved timm 1.0.30, for evaluation only. The published student ran transformers 5.3.0 and the benchmark 5.2.0, with no effect on DBR 16.4.
+- **Precision.** Students run in bf16 in the benchmark and ran in fp32 in the preprint. The bf16 and fp32 features agree with cosine at least 0.9992.
+- **The `_Improved` overwrite.** The surviving per-frame student outputs of the preprint are a later `_Improved` run whose pruning broke tracking (per-clip MOTA 69.12 / 46.83 / 99.38 / 58.40, 75 ID switches). They are not the run behind 92.29 / 96.15. That run was regenerated exactly from the EMA epoch 75 checkpoint on DBR 16.4.
+- **Pruning.** `k8` is not lossless and the preprint's student ran `k8`. `k16` is output-identical to no pruning, and every benchmark run uses it.
+- **Differences between models.** SDPA attention for every model except EdgeTAM, whose `timm` backbone rejects it, so it loads with eager attention. `max_cond_frame_num` is 4 for SAM 3 and −1 for SAM 2.1 and EdgeTAM. The official EdgeTAM predictor cannot track more than one object per batch.
 
 ## Edinburgh results
 

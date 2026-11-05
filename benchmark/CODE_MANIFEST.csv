@@ -45,3 +45,11 @@ distillation/Tol_82_edimine_gates.py,Edinburgh mining: gates,9ba7f9028ff6e612b97
 distillation/test_tol_distill_core.py,tests of the distillation core,a3d1e7613f5648a10d3d647970937aa2bc0921dd0471aa4f772302bb56b55e68,byte-identical to the run copy
 distillation/tol81_harness.py,Edinburgh mining: selection harness,9e96e6ee524c0dda6868ec2c4cb0528b22b7fbfcf75089703203f0b4cccf9b31,copied unchanged
 distillation/tol_distill_core.py,shared distillation core,16522b6c738bac6fa6cbc3097481b9e970acd11538e495d40def92371761fe02,byte-identical to the run copy
+benchmark/core_27b870bb/tol_es3.py,EfficientSAM3 encoder adapter,655173d5f8ca587b7a57a44cab4ce00281e5058c0436a701d0653102775a0768,byte-identical to the run copy
+benchmark/core_27b870bb/tol_paths.py,path registry reader,f6603e639ec0e010640da401afc3837ae2e3923bf9c9dd62ff3e55bc9d9d3d46,byte-identical to the run copy
+benchmark/core_8689f125/tol_es3.py,EfficientSAM3 encoder adapter,655173d5f8ca587b7a57a44cab4ce00281e5058c0436a701d0653102775a0768,byte-identical to the run copy
+benchmark/core_8689f125/tol_paths.py,path registry reader,f6603e639ec0e010640da401afc3837ae2e3923bf9c9dd62ff3e55bc9d9d3d46,byte-identical to the run copy
+benchmark/protocol/es3_g2_v1.json,frozen protocol value,99b2fe0d6d1978a70df1a8b988ff5fcb52b17f814f5a113cc7583f465de4d257,byte-identical to the run copy
+benchmark/protocol/protD_tau_v1.json,frozen protocol value,6d7c1385d801f437255ffc326971af9c2e036cbeb42637a882422cbb0c8eb25b,path line replaced; value unchanged; see protocol/README.md
+benchmark/protocol/mot_xy_offset_v1_pigtrack.json,frozen protocol value,d65f5bd167948c6008f75a55cdcc9a0e78abd9c9c72813fd96beeb5d5c16b181,path line replaced; value unchanged; see protocol/README.md
+benchmark/protocol/mot_xy_offset_v1_edinburgh.json,frozen protocol value,d8393eb39ee4dce61e0cf1f1606f024153411968d9826f7a3624d943b920235d,path line replaced; value unchanged; see protocol/README.md

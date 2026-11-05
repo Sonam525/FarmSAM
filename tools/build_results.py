@@ -212,7 +212,9 @@ def main(ledger, out):
     write(out, "point_estimate_differences.csv", h[:-1], [x[:-1] for x in r])
     h, r = L.table("### 12.4 Data for the recipe display")
     for x in r:
-        x[6] = re.sub(r"^(0\.25042) Section 3\.3.*$", r"", x[6])
+        x[6] = re.sub(r"^(0\.25042) Section 3\.3.*$",
+                      lambda m: m.group(1) + " (quoted from the development record; not re-read from the history file)",
+                      x[6])
     write(out, "recipe.csv", h[:-1], [x[:-1] for x in r])
     h, r = L.table("**(a) Pooled over the four test clips")
     write(out, "mining_edinburgh_pooled.csv", ["metric", "published student", "student with 627 extra frames",
@@ -222,5 +224,16 @@ def main(ledger, out):
                                                  "difference (stored precision)", "difference (rounded)"], r)
 
 
+def check_no_control_bytes(out):
+    """Stop if any CSV holds a byte below 0x20 other than tab, newline or carriage return."""
+    for name in sorted(os.listdir(out)):
+        if name.endswith(".csv"):
+            with open(os.path.join(out, name), "rb") as f:
+                bad = sorted(set(b for b in f.read() if b < 0x20 and b not in (9, 10, 13)))
+            if bad:
+                raise SystemExit("control bytes %s in %s" % (bad, name))
+
+
 if __name__ == "__main__":
     main(sys.argv[1], sys.argv[2])
+    check_no_control_bytes(sys.argv[2])

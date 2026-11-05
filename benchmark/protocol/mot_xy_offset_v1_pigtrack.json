@@ -1,0 +1,88 @@
+{
+ "bench_version": "b1.0 2026-10-14",
+ "code": {
+  "tol64": {
+   "path": "/Workspace/Users/<DATABRICKS_USER>/Model Distillation/Testing on Tol2/_pinned/core_bc46ecfb/Tol_64_score_bench.py",
+   "source": "3e13d4c5f14d8f7709972caa671e79cfa51b8b081967c8b1a69e963c1dc03ac3",
+   "source_norm": "21ed0d3ecb5a4d1317814f2211b71097e110893bb7462b360405dbd2a367ecbc"
+  },
+  "tol_bench_core": {
+   "source": "bc46ecfb9eca56af5fc991d5ea0e3460776cc2dc1f9780c9a8c756c060132b16",
+   "source_norm": "d59f8ea351d80e91b00efe6f89c5586fdbe70a1d5aa5b566f67623a644b0b5a0"
+  }
+ },
+ "created_utc": "2026-10-16T20:43:48Z",
+ "datasets": [
+  "pigtrack"
+ ],
+ "pigtrack": {
+  "gt": {
+   "pigtrack0001": "badb51a6fa7217bcfdb251d6acf080bea6d3fe711d6ddd0b2faa7e19b45c8bac",
+   "pigtrack0006": "251e2e40c4947b13a3c468acaebbeb0bb5d4e78eca336c8989169c3ccae731cb",
+   "pigtrack0007": "a64191d2ad26c10175b3b49856fa8dc794dd519e83ae95011d2ec5cbef16ee91",
+   "pigtrack0008": "37da71446b2ab757b1e4eeab937c1dc737b1050f181cfefda782d5ac3a9dbcd6",
+   "pigtrack0015": "38915cb2b256182e4476a687c4decb0ea1e5f4bd1c8859984848c48c6de7858c",
+   "pigtrack0020": "85a620adb59a38d2bb47a008aac0be2336b867d170bafc2886007e5887c2fd16",
+   "pigtrack0022": "6b998544a7d93cc150cfb49d3b208fb63c97e7bcbc653424c61e381e4544d4a2",
+   "pigtrack0029": "3c1dc3a08846e55a538cbcd0a5f9fd408d1f87f583a23679d15731f2c8a66046",
+   "pigtrack0031": "20ad9ace2d0a6281882c89259d347316d4bc825491b6731624bf504f7bc23cff",
+   "pigtrack0032": "8fb94d839fac4ac30e5e739e19a77ed3fb695e4e9d8e3070c784748f8b4dfe90",
+   "pigtrack0033": "a32421c31c7b949bfe4d38986b8549278c9c974fbc06fd36c1c4d5f1a1e23877",
+   "pigtrack0034": "53292708edc678a44a263d3a9564b5e20f00c9384fe3a42aaaf496367a41aeaa",
+   "pigtrack0037": "e9ef44be93a2ee56ef521b5b0d0145f96839e2cf863ed7fc9e86f96442a59e8f",
+   "pigtrack0047": "33714dec199d55b2fee606380a07ae6989a15ac2e50aedf46be400f9a580f3ad",
+   "pigtrack0048": "cb8eeef78cb4e64f8d11be849e5e5816de2bd39d8ded9a9999359e8baee70429",
+   "pigtrack0051": "bd143b600f2325008805d5bf8a63be75e5bf23e684839ebd8ef8174a11931e1f",
+   "pigtrack0056": "6c0211524da80cf59ef428d5e9ab3809a76b6fa75f9c70d3cb79ff0ba01c2bc7",
+   "pigtrack0062": "4fc26d2efc2e5380d6215f49a431fa97b8fd70fac6617e6771707540044c920f",
+   "pigtrack0066": "46e41281090c5bc8768d591edbc57260f714ed3780bd80441f2192e521ab17f8",
+   "pigtrack0069": "aa6487b029d789e58edb73fde99a96190af3f08ea862c0b418a501ea22c1c06d"
+  },
+  "median_dx": 1.0,
+  "median_dy": 2.0,
+  "median_pooled": 2.0,
+  "n_matches": 139282,
+  "o": 0,
+  "run_configs": {
+   "val": {
+    "bench_version": "b1.0 2026-10-14",
+    "code": {
+     "source": "bc46ecfb9eca56af5fc991d5ea0e3460776cc2dc1f9780c9a8c756c060132b16",
+     "source_norm": "d59f8ea351d80e91b00efe6f89c5586fdbe70a1d5aa5b566f67623a644b0b5a0"
+    },
+    "gpu_class": "A10",
+    "mot_xy_offset": 0,
+    "sha256": "a3c194984c30e4486ef150a22e18ca82479fe8cef55201f39c82de221272cb96"
+   }
+  },
+  "run_dirs": {
+   "val": "/Volumes/cornell_catalog/cornell_schema/blob_video/SAM3 Distillation and re-id/paper1_distillation/bench/pigtrack/T__protA/val"
+  },
+  "sequences": [
+   "pigtrack0001",
+   "pigtrack0006",
+   "pigtrack0007",
+   "pigtrack0008",
+   "pigtrack0015",
+   "pigtrack0020",
+   "pigtrack0022",
+   "pigtrack0029",
+   "pigtrack0031",
+   "pigtrack0032",
+   "pigtrack0033",
+   "pigtrack0034",
+   "pigtrack0037",
+   "pigtrack0047",
+   "pigtrack0048",
+   "pigtrack0051",
+   "pigtrack0056",
+   "pigtrack0062",
+   "pigtrack0066",
+   "pigtrack0069"
+  ],
+  "split": "val"
+ },
+ "rule": "o in {0,1} minimising |median signed difference| between the left / top edges of T's Protocol A val boxes (+ o) and their GT boxes over per-frame Hungarian IoU >= 0.5 matches (left and top pooled; tie -> 0); applied to x and y of every arm's tracker file when staged for TrackEval",
+ "score_version": "s1.2 2026-10-15",
+ "version": "mot_xy_offset_v1"
+}

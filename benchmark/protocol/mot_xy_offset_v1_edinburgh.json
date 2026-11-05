@@ -1,0 +1,50 @@
+{
+ "bench_version": "b1.0 2026-10-14",
+ "code": {
+  "tol64": {
+   "path": "/Workspace/Users/<DATABRICKS_USER>/Model Distillation/Testing on Tol2/Tol_64_score_bench.py",
+   "source": "3e13d4c5f14d8f7709972caa671e79cfa51b8b081967c8b1a69e963c1dc03ac3",
+   "source_norm": "21ed0d3ecb5a4d1317814f2211b71097e110893bb7462b360405dbd2a367ecbc"
+  },
+  "tol_bench_core": {
+   "source": "5e705fffcb1711a427239a6bcec3e3622b9b8be69dc3e1b459643c663d460e58",
+   "source_norm": "022d2c0f6836c5ad113492cdf40134afd18d34f7112560684ba760129e899506"
+  }
+ },
+ "created_utc": "2026-10-15T18:58:25Z",
+ "datasets": [
+  "edinburgh"
+ ],
+ "edinburgh": {
+  "gt": {
+   "2019_11_28_000113": "c7957d2d82b959a8ec2960e8325825314b29fa4a63b49cc74bc3ba0badba44d1"
+  },
+  "median_dx": 2.0,
+  "median_dy": 5.0,
+  "median_pooled": 3.0,
+  "n_matches": 4757,
+  "o": 0,
+  "run_configs": {
+   "val": {
+    "bench_version": "b1.0 2026-10-14",
+    "code": {
+     "source": "5e705fffcb1711a427239a6bcec3e3622b9b8be69dc3e1b459643c663d460e58",
+     "source_norm": "022d2c0f6836c5ad113492cdf40134afd18d34f7112560684ba760129e899506"
+    },
+    "gpu_class": "A10",
+    "mot_xy_offset": 0,
+    "sha256": "4feb933413db688cc518f321a906062c5f5f42c7ec4a6c4893edb3de7124ed04"
+   }
+  },
+  "run_dirs": {
+   "val": "/Volumes/cornell_catalog/cornell_schema/blob_video/SAM3 Distillation and re-id/paper1_distillation/bench/edinburgh/T__protA/val"
+  },
+  "sequences": [
+   "2019_11_28_000113"
+  ],
+  "split": "val"
+ },
+ "rule": "o in {0,1} minimising |median signed difference| between the left / top edges of T's Protocol A val boxes (+ o) and their GT boxes over per-frame Hungarian IoU >= 0.5 matches (left and top pooled; tie -> 0); applied to x and y of every arm's tracker file when staged for TrackEval",
+ "score_version": "s1.2 2026-10-15",
+ "version": "mot_xy_offset_v1"
+}

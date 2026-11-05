@@ -6,13 +6,16 @@ This page says what ran, in which order, and which parts you can rerun today.
 
 | Result | Can you rerun it? |
 |:---|:---|
-| Student training on PigTrack | Yes, with PigTrack and SAM 3 access |
+| Student training on PigTrack | Partly. It needs PigTrack and SAM 3 access, and you stage the dataset yourself: the staging notebook, seqmaps and split file are not in this draft |
 | Student training on Edinburgh | Yes, with the Edinburgh dataset and SAM 3 access. Non-commercial data |
 | Student training on calves | Not until the calf dataset hold ends |
-| Tracking on PigTrack and Edinburgh | Yes |
+| Tracking on PigTrack, Protocol A and D | Partly. `core_bc46ecfb` runs it after you stage PigTrack and copy [`benchmark/protocol/`](../benchmark/protocol/README.md) under your registry root. Protocol D also needs a detector from `Tol_71_rfdetr_pig_train.py` |
+| Tracking on Edinburgh, Protocol A | Partly. The core that ran it is here (`core_5e705fff`), but the `Tol_63` copy that ran with it is not. Use `core_bc46ecfb`: its MOT files for SAM 3 and the Edinburgh student are byte-identical to the original run on all 4 clips. SAM 2.1 and EdgeTAM have no such byte check |
 | Accuracy scores | Not from this draft: the scorer is held back (see below) |
 | Calf scoring | Not yet. It needs the calf videos and the reference masks, which are not released |
-| Latency and memory | Yes on a comparable GPU; the numbers are for one A10 vGPU |
+| Latency and memory | Not from this draft for the 4-object rows: they read `calf_windows_v1.json` and a calf clip, and neither is released. The numbers are for one A10 vGPU |
+
+`requirements.txt` lists the packages as they ran. It has not been installed as a whole outside the run environment. The runs used Python 3.12.3.
 
 ## Environment
 
@@ -53,9 +56,9 @@ Each folder under `benchmark/` is one code set, as it ran. The scripts import ea
 
 | Code set | Used for |
 |:---|:---|
-| `core_5e705fff` | Edinburgh Protocol A: SAM 3, Edinburgh student, SAM 2.1, EdgeTAM |
+| `core_5e705fff` | Edinburgh Protocol A: SAM 3, Edinburgh student, SAM 2.1, EdgeTAM. The core only, for reference. See the table above |
 | `core_bc46ecfb` | EfficientSAM3 encoder on Edinburgh, PigTrack Protocol A, Protocol D |
-| `calf_windows` | The six calf windows. Pairs with the core and helpers of `core_bc46ecfb` |
+| `calf_windows` | The six calf windows. Pairs with the core and helpers of `core_bc46ecfb`. It cannot run until the window file and calf video are released |
 | `efficiency` | Latency, memory, pruning factorial, end-to-end rows |
 | `core_8689f125` | PigTrack mining students |
 | `core_27b870bb` | Edinburgh mining student |
@@ -87,7 +90,7 @@ Recipe: AdamW, cosine schedule with warm restarts, EMA of weights (decay 0.9995)
 
 ### 3. Tracking
 
-`Tol_63_track_bench.py` from the matching code set runs one model on one dataset and writes MOT files and RLE masks. The detector for Protocol D is trained with `benchmark/gates/Tol_71_rfdetr_pig_train.py`.
+`Tol_63_track_bench.py` from the matching code set runs one model on one dataset and writes MOT files and RLE masks. `core_8689f125` and `core_27b870bb` carry the same `tol_paths.py` and `tol_es3.py` as `core_bc46ecfb`. The detector for Protocol D is trained with `benchmark/gates/Tol_71_rfdetr_pig_train.py`.
 
 Pruning runs at `k16` with the `processed_frames` pop for every model. `k8` is not lossless.
 
@@ -124,6 +127,7 @@ PYTHONPATH=../benchmark/core_bc46ecfb python test_tol_distill_core.py
 
 - Weights: see [CHECKPOINTS.md](CHECKPOINTS.md).
 - Frames, ground truth or tracks of the Edinburgh dataset. It is CC BY-NC.
-- Calf reference masks. Their release is an open question.
+- Calf reference masks and `calf_windows_v1.json`. Their release is an open question.
+- `Tol_62_pigtrack_stage`, the seqmaps and the split file for PigTrack.
 - The dated protocol log and the internal ledger. The tables come from that ledger through `tools/build_results.py`, which is here so you can see that nothing was retyped.
 - Reverse-transfer code and results. That run is pending.
