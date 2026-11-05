@@ -1,0 +1,5 @@
+runtime,arm,000005 FP=FN,000208,000060,000078,mean MOTA / IDF1 (published),IDSW
+"DBR 16.4, torch 2.6.0+cu124, tf 5.2.0",SAM 3,215 (215),39 (39),1 (1),324 (324),93.97 / 96.98 (93.97 / 96.98),0
+"DBR 16.4, tf 5.2.0 and tf 5.3.0",Edinburgh student,318 (318),35 (35),2 (2),385 (385),92.29 / 96.15 (92.29 / 96.15),0
+"DBR 17.3, torch 2.7.0, tf 5.2.0 (protocol runtime)",SAM 3,216,31,1,323,94.05 / 97.03,0
+DBR 17.3,Edinburgh student,312,37,2,387,92.31 / 96.16,0

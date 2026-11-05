@@ -1,0 +1,12 @@
+dataset,student minus comparator,difference,unit,per-clip or other detail,label
+Edinburgh,Edinburgh student minus EdgeTAM,+2.84,"HOTA points, pooled, 4 clips","per clip -1.41, +15.58, -3.38, +0.51 (clips 000005, 000208, 000060, 000078): ahead on 2 of 4 clips; one EdgeTAM collapse on clip 000208 (EdgeTAM 64.71 against 81.04 for SAM 3) drives the pooled value","descriptive (n = 4, no interval)"
+Edinburgh,Edinburgh student minus the EfficientSAM3 encoder,+16.05,HOTA points,"per clip +3.87, +33.69, +4.28, +23.30: ahead on every clip","descriptive; encoder only; parity check failed (both parts of the disclosure, Section 1)"
+Edinburgh,Edinburgh student minus SAM 2.1-small,-1.13,HOTA points,"per clip -1.95, +0.16, -2.30, -0.10",descriptive
+Edinburgh,Edinburgh student minus SAM 2.1-tiny,-0.46,HOTA points,"per clip -0.49, +0.71, -1.66, -0.48",descriptive
+PigTrack,PigTrack student minus EdgeTAM,+2.09,"HOTA points, 25 sequences",by day the student is below EdgeTAM (70.82 against 74.21); no interval,point estimate; not pre-specified; no interval
+PigTrack,PigTrack student minus SAM 2.1-small,-7.65,HOTA points,,"exploratory, not pre-specified"
+PigTrack,PigTrack student minus SAM 2.1-tiny,-6.12,HOTA points,,point estimate; no interval
+calves,night-mined calf student minus the first calf student,+11.48,percentage points of identity-correct calf-time,"frames, selection, night share and training time changed together; no control; the night-mined student made the reference masks",point estimate; no interval computed; post hoc
+calves,night-mined calf student minus SAM 2.1-tiny,+0.27,percentage points,the stored intervals of each model against SAM 3 overlap,point estimate; no interval computed
+calves,night-mined calf student minus SAM 2.1-small,+0.47,percentage points,same,point estimate; no interval computed; post hoc (this calf row was added after the other calf results were known)
+calves,night-mined calf student minus EdgeTAM,+7.94,percentage points,,point estimate; no interval computed

@@ -1,0 +1,6 @@
+cell,arm,seeds,births (birth frames),deaths,blocked births,object-frames after a birth-frame encoding
+PigTrack,SAM 3,334,119 (110),0,"1,768",83.8 %
+PigTrack,PigTrack student,334,133 (118),6,"2,277",84.4 %
+PigTrack,SAM 2.1-small,334,122 (112),1,"1,869",85.2 %
+Edinburgh d_edi_v1,T / Edinburgh student / SAM 2.1-small,26 each,7 (7) each,2 each,706 / 740 / 697,70.9 / 71.0 / 71.0 %
+Edinburgh d_pt_v1,T / Edinburgh student / SAM 2.1-small,34 each,10 (9) / 12 (11) / 12 (12),4 / 5 / 5,"1,033 / 780 / 986",47.0 / 68.6 / 56.3 %

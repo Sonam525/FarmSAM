@@ -1,0 +1,7 @@
+model,level_after_first_pass_mib,per_stream_mib,streams
+SAM 3,981.01,249.95,84
+"Edinburgh student, PigTrack student, Calf student (evenly spaced), Calf student (night-mined)",389.45,249.95,86
+SAM 2.1-tiny,124.48,251.24,87
+SAM 2.1-small,138.02,251.24,87
+EdgeTAM,75.93,89.74,246
+EfficientSAM3 encoder,177.77,249.95,87

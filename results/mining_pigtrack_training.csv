@@ -1,0 +1,6 @@
+student,seed,extra frames,train targets,epochs run,best epoch,train seconds,training hours (DERIVED),best EMA val loss,"A100-h of the whole run (RECORDED, includes overhead)"
+PigTrack student,42,0,"2,626",47,32,"7,003.4",1.95,0.3266 (0.32657),(earlier run)
+mined,42,"2,125 mined","4,751",42,27,"10,410.4",2.89,0.3268,3.1710
+random draw 1,42,"2,125 random","4,751",44,29,"10,794.9",3.00,0.3265,3.3693
+random draw 2,43,"2,125 random","4,751",40,25,"10,056.3",2.79,0.3279,3.0184
+PigTrack student without drop-path,42,0,"2,626",43,28,"6,364.7",1.77,—,—

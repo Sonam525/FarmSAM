@@ -1,0 +1,4 @@
+student,per-patch cosine (± sd),global cosine,scale ratio,MSE,day / night per-patch
+PigTrack student (headline),0.6807 ± 0.048,0.6077,0.9304,1.5548,0.6939 / 0.6691
+PigTrack student without drop-path (ablation),0.6745 ± 0.045,0.5972,0.9302,1.5944,0.6838 / 0.6663
+Edinburgh student (zero-shot),0.5385 ± 0.020,0.4508,0.9698,2.2568,0.5508 / 0.5275

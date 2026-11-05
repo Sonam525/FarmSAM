@@ -1,0 +1,10 @@
+model,weights,CUDA context,steady peak allocated / reserved,session tensors,growth OLS (MiB / frame),reserved peak + context,fits an A10
+SAM 3,916.6,"2,405.6","1,928.95 / 2,056",259.17,-0.0055,"4,461.6",yes
+Edinburgh student,183.1,"2,455.6","1,443.18 / 1,602",259.17,+0.0135,"4,057.6",yes
+PigTrack student,183.1,"2,455.6","1,289.31 / 1,442",259.17,+0.0012,"3,897.6",yes
+Calf student (evenly spaced),183.1,"2,455.6","1,296.90 / 1,462",259.17,+0.0014,"3,917.6",yes
+Calf student (night-mined),183.1,"2,455.6","1,289.31 / 1,462",259.17,-0.0032,"3,917.6",yes
+SAM 2.1-tiny,82.4,"2,405.6","963.71 / 1,044",238.53,-0.0022,"3,449.6",yes
+SAM 2.1-small,95.9,"2,405.6","984.14 / 1,112",238.53,+0.0133,"3,517.6",yes
+EdgeTAM,35.3,"2,405.6",404.21 / 600,75.03,+0.0102,"3,005.6",yes
+EfficientSAM3 encoder,113.3,"2,443.6","1,061.21 / 1,224",259.17,+0.0064,"3,667.6",yes
