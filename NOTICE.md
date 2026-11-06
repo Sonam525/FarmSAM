@@ -6,13 +6,13 @@ Licence holder: Haiyu Yang.
 
 Code in this repository is under the MIT licence in [LICENSE](LICENSE), unless a file or the list below says otherwise.
 
-**Exception.** The copies of `tol_es3.py` under `benchmark/` are outside the MIT grant for now. The file re-implements glue around the EfficientSAM3 encoder with the authors' module names, and that code sits in a fork of SAM 3 whose licence file is the SAM License. Check those terms before you reuse it.
+**Exception.** `benchmark/core/es3_encoder.py` is outside the MIT grant for now. The file re-implements glue around the EfficientSAM3 encoder with the authors' module names, and that code sits in a fork of SAM 3 whose licence file is the SAM License. Check those terms before you reuse it.
 
 ## Weights
 
-No weights are in this repository. The nine student checkpoints are published on Hugging Face at [`Sonam5/FarmSAM`](https://huggingface.co/Sonam5/FarmSAM). MIT does not apply to them.
+No weights are in this repository. The five student checkpoints are published on Hugging Face at [`Sonam5/FarmSAM`](https://huggingface.co/Sonam5/FarmSAM). MIT does not apply to them.
 
-All nine students are released under the [SAM License](LICENSES/SAM_LICENSE.txt). They are trained to match features of the SAM 3 image backbone, hold TinyViT and head tensors, and run inside SAM 3's tracker, so we apply its terms to be safe. Anyone who passes a student on must do so under those terms and include a copy of the licence. SAM 3 itself is not redistributed here: you download it from Meta under its gate.
+All five students are released under the [SAM License](LICENSES/SAM_LICENSE.txt). They are trained to match features of the SAM 3 image backbone, hold TinyViT and head tensors, and run inside SAM 3's tracker, so we apply its terms to be safe. Anyone who passes a student on must do so under those terms and include a copy of the licence. SAM 3 itself is not redistributed here: you download it from Meta under its gate.
 
 **Non-commercial limit.** The two Edinburgh students may be used for non-commercial purposes only. They were distilled on frames of the Edinburgh pig dataset (CC BY-NC). This limit comes from the data licence and applies on top of the SAM License.
 

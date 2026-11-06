@@ -109,13 +109,13 @@ def prune_inference_session(session, keep_last_n=8):
         if len(nc) > keep_last_n:
             for k in sorted(nc.keys())[:-keep_last_n]: del nc[k]
 
-# Dummy prompt — backbone features do NOT depend on it (see header). Four boxes inside the pen.
+# Dummy prompt - backbone features do NOT depend on it (see header). Four boxes inside the pen.
 DUMMY_BOXES = [[600, 200, 1000, 600], [1100, 200, 1500, 600],
                [600, 700, 1000, 1100], [1100, 700, 1500, 1100]]
 
 def sample_frames(local_path, seconds_per_frame):
     """Seek-sample a clip. Falls back to a sequential pass if the container reports no frame
-    count — without that branch a bad header yields ZERO frames silently (this bit us on the
+    count - without that branch a bad header yields ZERO frames silently (this bit us on the
     truncated 04-18 11:33 clip, which is 0.7 MB instead of ~1.3 GB)."""
     cap = cv2.VideoCapture(local_path)
     fps = cap.get(cv2.CAP_PROP_FPS) or 25.0
@@ -152,7 +152,7 @@ for ci, (vname, meta) in enumerate(CLIPS):
     stem = vname[:-4].replace(" ", "_")
     done = osp.join(BACKBONE_DIR, f".done_{stem}")
     if osp.exists(done):
-        print(f"  [{ci+1}/{len(CLIPS)}] {stem}: done — skip"); continue
+        print(f"  [{ci+1}/{len(CLIPS)}] {stem}: done - skip"); continue
 
     dst = osp.join(LOCAL, "clip.mp4")
     if osp.exists(dst): os.remove(dst)
@@ -167,7 +167,7 @@ for ci, (vname, meta) in enumerate(CLIPS):
     for si, (fidx, tsec, pil) in enumerate(sample_frames(dst, SECONDS_PER_TARGET)):
         inputs = processor(images=pil, device=device, return_tensors="pt")
         if si == 0:
-            # fresh lists per session — the processor MUTATES obj_ids
+            # fresh lists per session - the processor MUTATES obj_ids
             processor.add_inputs_to_inference_session(
                 inference_session=session, frame_idx=0,
                 obj_ids=list(range(len(DUMMY_BOXES))),
@@ -188,13 +188,13 @@ for ci, (vname, meta) in enumerate(CLIPS):
     os.system(f"cp -r '{lf}/.' '{BACKBONE_DIR}/'")
     os.system(f"cp -r '{li}/.' '{FRAMES_DIR}/'")
     # Only mark done if the clip actually produced targets. A corrupt/truncated file must NOT be
-    # silently recorded as complete — it would never be retried and never surface in any count.
+    # silently recorded as complete - it would never be retried and never surface in any count.
     if n_clip > 0:
         open(done, "w").close()
     else:
         sz = osp.getsize(osp.join(VIDEO_DIR, vname)) if osp.exists(osp.join(VIDEO_DIR, vname)) else -1
         SKIPPED.append({"clip": vname, "bytes": sz})
-        print(f"  ⚠ {stem}: ZERO targets — unreadable/truncated ({sz/1e6:.1f} MB). "
+        print(f"  ⚠ {stem}: ZERO targets - unreadable/truncated ({sz/1e6:.1f} MB). "
               f"NOT marked done; excluded from the manifest.")
     shutil.rmtree(lf, ignore_errors=True); shutil.rmtree(li, ignore_errors=True)
     os.remove(dst)

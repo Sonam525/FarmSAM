@@ -11,7 +11,7 @@ Pillow==11.1.0
 opencv-python-headless==4.11.0.86
 scipy
 pycocotools
-rfdetr==1.10.1        # Protocol D detector only
+rfdetr==1.10.1        # RF-DETR runs only
 supervision==0.31.1   # used by RF-DETR only
 
 # Scoring

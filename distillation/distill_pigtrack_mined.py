@@ -88,8 +88,6 @@ _PATHS_DIRS = [CODE_DIR, os.environ.get("FARMSAM_PATHS_DIR")]
 if not IS_NOTEBOOK:
     _PATHS_DIRS.append(osp.join(osp.dirname(CODE_DIR), "catalog", "build"))
 farm_paths = _import_exact("farm_paths", _PATHS_DIRS)
-# Full sha256 of the shared modules this notebook may run against: the Workspace-root core 5e705fff (the core S-PT trained with) or
-# _pinned/core_bc46ecfb; every symbol used here is AST-identical in the two (bench/pt_mining/_work/ast_core_check.json).
 RID = uuid.uuid4().hex[:6]
 print(f"{NB_NAME} {NB_VERSION} rid {RID}: bench_core {core.BENCH_VERSION} "
       f"sha256 {core.sha256_file(core.__file__)[:16]}, distill_core sha256 {core.sha256_file(dc.__file__)[:16]}, "

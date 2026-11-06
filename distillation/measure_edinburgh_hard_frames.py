@@ -1022,7 +1022,7 @@ TIMINGS["phase_a_teacher_s"] = round(time.time() - t_ph, 1)
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC ## Label-free pig region: SAM 3 text prompt "pig" (Sam3Model) — every frame of the unused clips, every `txt_stride_bench`-th frame of the benchmark clips (validation against GT / T masks)
+# MAGIC ## Label-free pig region: SAM 3 text prompt "pig" (Sam3Model) - every frame of the unused clips, every `txt_stride_bench`-th frame of the benchmark clips (validation against GT / T masks)
 
 # COMMAND ----------
 

@@ -80,9 +80,6 @@ def _import_exact(name, dirs):
     raise RuntimeError(f"{name}.py not found in {[d for d in dirs if d]}")
 
 
-# Full sha256 of the shared modules this notebook may run against (DESIGN s.5 "pinned code only"). The Workspace root holds
-# bench_core 5e705fff (the core S-PT / extract_teacher_targets_pigtrack / distill_student_pigtrack ran with); _pinned/core_bc46ecfb holds bc46ecfb. Every symbol this
-# notebook uses is AST-identical in the two (checked when the notebook was built: bench/pt_mining/_work/ast_core_check.json).
 
 CODE_DIR = _code_dir()
 core = _import_exact("bench_core", [CODE_DIR])
@@ -141,7 +138,7 @@ CONTROL_COS_GLOBAL_MIN = 0.9999
 CROSSCHECK_N, CROSSCHECK_TOL = 50, 1e-4
 SET_NAMES = ("mined", "random", "random2", "comp")
 SET_SOURCE = {"mined": "mined", "random": "random", "random2": "random2", "comp": "comp"}
-MODEL_KEY = "models.student_pigtrack"            # models/sam3_student_tinyvit/pigtrack_v1/...; S-PT lies beside it
+MODEL_KEY = "models.student_pigtrack"
 SPT_RUN = "pigtrack_v2_dp01"
 CKPT_NAME = "best_backbone_student_pigtrack.pt"
 BASE_TARGETS_KEY = "paper1.teacher_targets.pigtrack_train"
@@ -524,8 +521,8 @@ def discover(R, expect_train=dc.EXPECT_TRAIN_SEQS):
 def student_ckpt_path(R):
     """models/sam3_student_tinyvit/pigtrack_v2_dp01/<ckpt>, derived from the registry key (read only)."""
     v1_dir = osp.dirname(R.path(MODEL_KEY))
-    if osp.basename(v1_dir) != "pigtrack_v1":
-        raise RuntimeError(f"registry {MODEL_KEY} -> {v1_dir}: expected a 'pigtrack_v1' directory")
+    if osp.basename(v1_dir) != SPT_RUN:
+        raise RuntimeError(f"registry {MODEL_KEY} -> {v1_dir}: expected a '{SPT_RUN}' directory")
     return osp.dirname(v1_dir).replace("\\", "/") + f"/{SPT_RUN}/{CKPT_NAME}"
 
 

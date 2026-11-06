@@ -279,7 +279,7 @@ def coco_from_mot(name, seq_records):
         seq, n_img, W, H = rec["seq"], int(rec["n_images"]), int(rec["width"]), int(rec["height"])
         c, keep, problems = mot_gt_census(rec["rows"], n_img)
         if problems:
-            raise T71Error(f"{name}/{seq}: GT {problems} ({ {k: c[k] for k in problems} }) — TrackEval would not "
+            raise T71Error(f"{name}/{seq}: GT {problems} ({ {k: c[k] for k in problems} }) - TrackEval would not "
                            "evaluate these rows as the converter would; an amendment is needed, not a silent filter")
         by_frame = collections.defaultdict(list)
         for r in rec["rows"][keep]:
@@ -712,7 +712,7 @@ def publish_generation(stg_paths, shas, vol_root, n, record, copier):
     rule forbids deleting); files, then GEN_COMPLETE last."""
     gdir = os.path.join(vol_root, gen_name(n))
     if os.path.exists(gdir):
-        raise T71Error(f"generation {gdir} already exists — generations are never rewritten")
+        raise T71Error(f"generation {gdir} already exists - generations are never rewritten")
     os.makedirs(gdir)
     for fn in UPLOAD_ORDER:
         if stg_paths.get(fn) is None:
@@ -750,7 +750,7 @@ def assert_t71_target(dst, roots):
     seg = [s for s in p.split("/") if s]
     if ".." in seg:
         raise PermissionError(f"{dst}: '..' in a publish target")
-    if p.startswith(("/dbfs/mnt/", "dbfs:/mnt/", "/mnt/")) or "playbehavior" in seg:
+    if p.startswith(("/dbfs/mnt/", "dbfs:/mnt/", "/mnt/")):
         raise PermissionError(f"{dst}: publishing to the blob mount is forbidden")
     for r in roots:
         r = str(r).replace("\\", "/").rstrip("/")
@@ -1609,7 +1609,7 @@ def _check_precision(ctx, out_dir):
     prec = resolve_precision_replica(tc["model_config"].get("amp", True), tc["train_config"].get("amp_dtype"),
                                      True, ctx.cuda.bf16())
     if prec != "bf16-mixed" or tc["train_config"].get("amp_dtype") != "bf16":
-        raise T71Error(f"resolved precision {prec} / amp_dtype {tc['train_config'].get('amp_dtype')} — not bf16-mixed")
+        raise T71Error(f"resolved precision {prec} / amp_dtype {tc['train_config'].get('amp_dtype')} - not bf16-mixed")
     aug = {k: tc["train_config"].get(k) for k in ("multi_scale", "expanded_scales", "scale_jitter",
                                                   "augmentation_backend", "aug_config", "square_resize_div_64")}
     return prec, aug, tc
@@ -1813,7 +1813,7 @@ def run_full(ctx, run_tag, RUN, variant, RES, init, sets, ds_dir, N_train, N_val
     if ckm.get("best_total_source") == "ema" and ema_meta.get("epoch") is not None and ms["best_epoch"] is not None \
             and int(ema_meta["epoch"]) != int(ms["best_epoch"]):
         raise T71Error(f"checkpoint_best_total.pth (EMA epoch {ema_meta['epoch']}) is not the metrics.csv best epoch "
-                       f"{ms['best_epoch']} — rfdetr's backfill or an inconsistent resume replaced the true best")
+                       f"{ms['best_epoch']} - rfdetr's backfill or an inconsistent resume replaced the true best")
     log(f"selected checkpoint: {ckm.get('best_total_source')} epoch {best_epoch}; csv best {ms['best_val_mAP_50_95']} @ "
         f"{ms['best_epoch']} ({ms['key']}), {ms['epochs_run']} epochs run")
     # ---------------------------------------------------------------- evaluation (all frames of every eval set)
@@ -1881,7 +1881,7 @@ def run_full(ctx, run_tag, RUN, variant, RES, init, sets, ds_dir, N_train, N_val
               "gpu": probe, "precision_resolved": prec, "augmentation_resolved": aug, "batch_size": bs, "grad_accum": ga,
               "train_kwargs": {k: v for k, v in kw.items() if k not in ("notes", "dataset_dir", "output_dir")},
               "rfdetr_version": ctx.rf.version, "versions": bc.versions(), "provenance": prov,
-              "loader": "bench_core.load_rfdetr_detector(ckpt, resolution=<resolution>) — from_checkpoint pins it",
+              "loader": "bench_core.load_rfdetr_detector(ckpt, resolution=<resolution>) - from_checkpoint pins it",
               "licence": ("RF-DETR Apache-2.0; trained on PigTrack (CC BY 4.0)" if P.target == "d_pt_v1" else
                           "RF-DETR Apache-2.0; fine-tuned on Edinburgh pigs (CC BY-NC): non-commercial use only"),
               "notes": notes, "created_utc": _now()}

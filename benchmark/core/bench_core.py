@@ -129,7 +129,7 @@ def _require_torch(need_transformers=False):
 # >>> VERBATIM student_fixed.txt cell 13 ("CELL 7: STUDENT ENCODER", Fixed notebook = the notebook that produced the
 # published student; identical in _cleaned). ONE change, marked [bench-C1]: drop_path_rate=0.0 (current
 # timm defaults to nonzero stochastic depth for this model; eval() is unaffected, but the GroupNorm train/eval identity
-# is only true with it off). test_tol_bench_core.py asserts this block equals the export minus the marked line.
+# is only true with it off).
 def replace_bn_with_gn(module):
     """Recursively replace all BatchNorm layers with GroupNorm."""
     for name, child in module.named_children():
@@ -151,7 +151,7 @@ def replace_bn_with_gn(module):
 class StudentEncoderTinyViT(nn.Module):
     """
     TinyViT-21M-512 with multi-scale feature fusion.
-    ALL normalization is GroupNorm — zero train/eval mismatch.
+    ALL normalization is GroupNorm - zero train/eval mismatch.
     """
     def __init__(self, out_channels=1024, pretrained=True):
         super().__init__()
@@ -191,7 +191,7 @@ class StudentEncoderTinyViT(nn.Module):
             nn.GELU(),
         )
 
-        # Spatial refinement at 72x72 — residual path
+        # Spatial refinement at 72x72 - residual path
         self.spatial_refine = nn.Sequential(
             nn.Conv2d(out_channels, out_channels, 3, padding=1, bias=False),
             nn.GroupNorm(32, out_channels),
@@ -354,7 +354,7 @@ def assert_publish_target(dst):
     if not p.startswith(REMOTE_PREFIXES):
         return dst
     seg = _segments(p)
-    if p.startswith(("/dbfs/mnt/", "dbfs:/mnt/", "/mnt/")) or "playbehavior" in seg:
+    if p.startswith(("/dbfs/mnt/", "dbfs:/mnt/", "/mnt/")):
         raise PermissionError(f"{dst}: publishing to the blob mount is forbidden")
     if PAPER1_SEGMENT not in seg or "Tol" in seg[seg.index(PAPER1_SEGMENT):] or ".." in seg:
         raise PermissionError(f"{dst}: Paper 1 code writes only under {PAPER1_SEGMENT}/ (never Tol/); use R.out('paper1.*')")
@@ -2467,7 +2467,7 @@ def load_arm(name, *, device="cuda", hf_token=None, revisions=None, registry=Non
     """Load one arm under the frozen settings: transformers 5.2.0, bf16 weights, attn_implementation='sdpa' requested
     (rejection recorded; a resolved flash_attention_2 raises), eval + no grad, fp32 matmul precision 'highest'.
     S-* arms: the student checkpoint is resolved through the registry key of ARMS[name] (student_source: optionally a
-    sibling run directory, e.g. S-PT = pigtrack_v2_dp01; or student_ckpt), staged to local disk, sha256-checked against
+    sibling run directory; or student_ckpt), staged to local disk, sha256-checked against
     the arm-table / registry pin when present; the teacher's vision_encoder.backbone is DELETED
     and replaced by the verbatim DummyBackbone. revisions: {hf_id: commit} pins.
     ES-L: _load_es3 = es3_encoder.load_es3_arm (this function's T arm + the EfficientSAM3 encoder

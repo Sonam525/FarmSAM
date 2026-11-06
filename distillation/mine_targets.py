@@ -190,7 +190,7 @@ for ci, (vname, wall0) in enumerate(CLIPS):
     total = int(cap.get(cv2.CAP_PROP_FRAME_COUNT) or 0)
     stride = max(1, round(CAND_SEC * fps))
     if total <= 0:
-        print(f"  ⚠ {stem}: unreadable — skipped"); cap.release(); os.remove(dst); continue
+        print(f"  ⚠ {stem}: unreadable - skipped"); cap.release(); os.remove(dst); continue
     session = processor.init_video_session(inference_device=device, dtype=DTYPE)
     n_clip = 0
     for si, fidx in enumerate(range(0, total, stride)):

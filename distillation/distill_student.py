@@ -63,7 +63,7 @@ os.makedirs(LF, exist_ok=True); os.makedirs(LI, exist_ok=True)
 if len(os.listdir(LF)) < len(man):
     t0 = time.time()
     subs = ["train"]
-    # mined-augmented manifests reference train_v2 dirs — stage them too, or the exists-filter
+    # mined-augmented manifests reference train_v2 dirs - stage them too, or the exists-filter
     # below silently drops every mined pair and "v2" trains on v1 data (caught in review)
     if "source" in man.columns and (man["source"] == "mined_v2").any():
         subs.append("train_v2")
@@ -77,7 +77,7 @@ n_before = len(man)
 man = man[man["image"].map(osp.exists) & man["feature"].map(osp.exists)].reset_index(drop=True)
 print(f"usable pairs: {len(man)} of {n_before}")
 assert len(man) >= 0.98 * n_before, \
-    f"staging dropped {n_before-len(man)} pairs — a manifest source dir was not staged"
+    f"staging dropped {n_before-len(man)} pairs - a manifest source dir was not staged"
 
 # ---- validation = whole clips nearest 08:00 / 13:00 / 19:00 / 23:00 (day+dusk+night) ----
 RXT = re.compile(r'-(\d{8})-(\d{6})-')
@@ -96,7 +96,7 @@ for target_h in (8, 13, 19, 23):
 print("validation clips (held out whole):")
 for c in val_clips: print(f"   {c}  start {starts[c]:%m-%d %H:%M}")
 
-# VAL COMPARABILITY: mined rows (source=mined_v2) are selected as the HARDEST frames — letting
+# VAL COMPARABILITY: mined rows (source=mined_v2) are selected as the HARDEST frames - letting
 # them into the val split would make v2's fidelity numbers incomparably harsher than v1's.
 # Val = v1-source rows of the held-out clips only; train = everything outside the val clips.
 _src = man["source"] if "source" in man.columns else pd.Series(["v1"] * len(man))
@@ -107,7 +107,7 @@ print(f"train {len(trn_df)} / val {len(val_df)} (val restricted to v1-source row
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC ## Dataset — synced h-flip, image-only colour jitter (no rotation/vflip: overhead view)
+# MAGIC ## Dataset - synced h-flip, image-only colour jitter (no rotation/vflip: overhead view)
 
 # COMMAND ----------
 
@@ -161,7 +161,7 @@ class StudentEncoderTinyViT(nn.Module):
         super().__init__()
         self.backbone = timm.create_model('tiny_vit_21m_512', pretrained=pretrained,
                                           features_only=True, out_indices=(1, 2, 3),
-                                          drop_path_rate=0.0)   # MUST be 0.0 — see header
+                                          drop_path_rate=0.0)   # MUST be 0.0 - see header
         replace_bn_with_gn(self.backbone)
         def lat(c): return nn.Sequential(nn.Conv2d(c, 256, 1, bias=False),
                                          nn.GroupNorm(32, 256), nn.GELU())
@@ -188,7 +188,7 @@ student = StudentEncoderTinyViT().to(device)
 n_par = sum(p.numel() for p in student.parameters())
 print(f"student params: {n_par/1e6:.2f}M")
 
-# determinism check — GroupNorm + no stochastic depth => train/eval must be identical
+# determinism check - GroupNorm + no stochastic depth => train/eval must be identical
 bn = sum(1 for m in student.modules() if isinstance(m, (nn.BatchNorm1d, nn.BatchNorm2d)))
 d = torch.randn(1, 3, 1024, 1024, device=device)
 with torch.no_grad():
@@ -305,7 +305,7 @@ print(f"\n✓ training done in {(time.time()-t_start)/3600:.2f} h | best EMA val
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC ## Held-out fidelity (EMA weights) — compare against Tol2: cos 0.852, scale 0.958, MSE 0.663
+# MAGIC ## Held-out fidelity (EMA weights) - compare against Tol2: cos 0.852, scale 0.958, MSE 0.663
 
 # COMMAND ----------
 

@@ -25,7 +25,7 @@ import numpy as np
 import bench_core as core
 
 DISTILL_CORE_VERSION = "dc1.0 2026-10-14"
-N_TARGETS_DEFAULT = 3000                  # S-PT: "PigTrack train split, ~3,000 unlabeled frames"
+N_TARGETS_DEFAULT = 3000                  # PigTrack train split, about 3,000 unlabeled frames
 EXPECT_TRAIN_SEQS = 35                    # official split.txt: train 35 / val 20 / test 25
 N_VAL_SEQS = 4                            # task J5: 4 whole train sequences = the distillation val set
 SEQ_RX = re.compile(r"^pigtrack\d{4}$")
@@ -425,7 +425,7 @@ def publish_file_guarded(src, dst, allowed_dir, dbutils=None):
     Same semantics as bench_core.publish_no_overwrite: identical content -> 'identical', different -> raises."""
     a = str(allowed_dir).replace("\\", "/").rstrip("/")
     d = str(dst).replace("\\", "/")
-    if os.path.dirname(d) != a or ".." in d.split("/") or "/Tol/" in d + "/" or "playbehavior" in d.split("/"):
+    if os.path.dirname(d) != a or ".." in d.split("/") or "/Tol/" in d + "/":
         raise PermissionError(f"{dst}: may only publish directly inside {allowed_dir}")
     core.assert_no_secrets(src)
     if os.path.exists(dst):
