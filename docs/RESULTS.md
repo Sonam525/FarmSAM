@@ -136,10 +136,6 @@ Other paired differences in HOTA, with 95 % CI: PigTrack student minus SAM 2.1-s
 
 <sub>Per-sequence HOTA of the PigTrack student and SAM 2.1-small against SAM 3.</sub>
 
-<p align="center"><img src="../figures/12_pigtrack_best_example.png" alt="PigTrack night frames with tracker boxes" width="760"></p>
-
-<sub>Night sequence pigtrack0049, the sequence where the PigTrack student comes closest to SAM 3 (HOTA 81.03 against 82.14). Frames: PigTrack, CC BY 4.0, with overlays added.</sub>
-
 ## With an RF-DETR detector
 
 Here an RF-DETR detector finds the animals, instead of reference boxes at the first frame. New tracks start from detections, and a track that dies stays in the session, so its compute cost is included.

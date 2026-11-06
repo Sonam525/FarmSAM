@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 430" width="960" height="430" role="img" aria-label="FarmSAM against SAM 3: accuracy on three datasets, backbone size and speed."><style>text{font-family:"Segoe UI",Helvetica,Arial,sans-serif;fill:#16324a}.h{font-size:19px;font-weight:700}.l{font-size:15px}.v{font-size:14px;fill:#5b6b75}.w{font-size:15px;font-weight:600}</style><rect width="960" height="430" rx="12" fill="#ffffff"/>
+<rect x="32" y="26" width="16" height="16" rx="3" fill="#b9c6cc"/><text x="54" y="40" class="l">SAM 3</text><rect x="124" y="26" width="16" height="16" rx="3" fill="#2a6f7f"/><text x="146" y="40" class="l">FarmSAM student</text>
+<text x="32" y="84" class="h">Accuracy</text>
+<text x="32" y="116" class="w">Dairy calves</text>
+<text x="140" y="116" class="v">identity correct, %</text>
+<rect x="32" y="126" width="329.3" height="19" rx="3" fill="#b9c6cc"/><text x="369.3" y="141" class="l">99.80</text>
+<rect x="32" y="150" width="327.5" height="19" rx="3" fill="#2a6f7f"/><text x="367.5" y="165" class="l">99.23</text>
+<text x="32" y="212" class="w">Edinburgh pigs</text>
+<text x="156" y="212" class="v">HOTA</text>
+<rect x="32" y="222" width="249.3" height="19" rx="3" fill="#b9c6cc"/><text x="289.3" y="237" class="l">75.54</text>
+<rect x="32" y="246" width="244.4" height="19" rx="3" fill="#2a6f7f"/><text x="284.4" y="261" class="l">74.05</text>
+<text x="32" y="308" class="w">PigTrack</text>
+<text x="106" y="308" class="v">HOTA</text>
+<rect x="32" y="318" width="283.4" height="19" rx="3" fill="#b9c6cc"/><text x="323.4" y="333" class="l">85.87</text>
+<rect x="32" y="342" width="241.7" height="19" rx="3" fill="#2a6f7f"/><text x="281.7" y="357" class="l">73.25</text>
+<text x="540" y="84" class="h">Size and speed</text>
+<text x="540" y="116" class="w">Backbone parameters</text>
+<text x="706" y="116" class="v">millions</text>
+<rect x="540" y="126" width="300.0" height="19" rx="3" fill="#b9c6cc"/><text x="848.0" y="141" class="l">446.24</text>
+<rect x="540" y="150" width="27.3" height="19" rx="3" fill="#2a6f7f"/><text x="575.3" y="165" class="l">40.66</text>
+<text x="540" y="212" class="w">Backbone time</text>
+<text x="656" y="212" class="v">ms per frame</text>
+<rect x="540" y="222" width="300.0" height="19" rx="3" fill="#b9c6cc"/><text x="848.0" y="237" class="l">152.46</text>
+<rect x="540" y="246" width="82.8" height="19" rx="3" fill="#2a6f7f"/><text x="630.8" y="261" class="l">41.56 to 42.61</text>
+<text x="540" y="308" class="w">Tracking speed</text>
+<text x="664" y="308" class="v">frames per second</text>
+<rect x="540" y="318" width="187.4" height="19" rx="3" fill="#b9c6cc"/><text x="735.4" y="333" class="l">3.25</text>
+<rect x="540" y="342" width="283.7" height="19" rx="3" fill="#2a6f7f"/><text x="831.7" y="357" class="l">4.83 to 5.01</text>
+<text x="32" y="412" class="v">Each dataset uses a student distilled on that dataset. One A10 GPU, 4 objects, frame decoding included.</text></svg>
