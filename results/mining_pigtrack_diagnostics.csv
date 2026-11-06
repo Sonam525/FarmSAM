@@ -1,8 +1,0 @@
-quantity,mined,random draw 1,random draw 2
-frames (night + day),"2,125 (747 + 1,378)","2,125 (747 + 1,378)","2,125 (747 + 1,378)"
-source sequences used (of 31),21,31,31
-sequences needed for 50 % of the set,6,11,10
-share from the six largest sources,"52.0 % (1,105)",31.3 %,34.2 %
-share whose +-1-frame neighbour is also in the set,85.69 %,36.14 %,37.74 %
-per-sequence caps binding,14,0,0
-mean per-patch cosine of the selected frames (teacher vs PigTrack student),0.7735,0.7922,0.7924

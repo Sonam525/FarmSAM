@@ -1,4 +1,4 @@
 run,objects,"detector per call, ms","backbone / student, ms","memory attention, ms","wall / frame, ms",e2e fps median [IQR] (mean),"reserved peak + context, MiB","growth OLS, MiB / frame",fits an A10
-"d_pt_v1 + SAM 3, pigtrack0002 (985 frames)",19 seeds → 25,15.25,160.37,686.56,977.86,"1.0226 [1.0208, 1.0626] (1.0514)","8,171.6",0.239,not assessable
-"d_pt_v1 + PigTrack student, pigtrack0002",19 seeds → 28 (2 deaths),14.75,38.17,702.10,888.26,"1.1258 [1.0893, 1.1554] (1.1492)","8,243.6",0.670,not assessable
-"segv1d + Calf student (night-mined), 0422_night, 2,500 frames",4,33.18,42.82,110.37,204.47,"4.8908 [4.6874, 4.9781] (4.7342)","4,051.6",-0.0037,yes
+"RF-DETR Small + SAM 3, pigtrack0002 (985 frames)",19 seeds → 25,15.25,160.37,686.56,977.86,"1.0226 [1.0208, 1.0626] (1.0514)","8,171.6",0.239,not assessable
+"RF-DETR Small + PigTrack student, pigtrack0002",19 seeds → 28 (2 deaths),14.75,38.17,702.10,888.26,"1.1258 [1.0893, 1.1554] (1.1492)","8,243.6",0.670,not assessable
+"calf RF-DETR detector + Calf student (night-mined), 0422_night, 2,500 frames",4,33.18,42.82,110.37,204.47,"4.8908 [4.6874, 4.9781] (4.7342)","4,051.6",-0.0037,yes

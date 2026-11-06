@@ -1,37 +1,31 @@
 window,model,identity_correct_pct,merge_frame_pct,fragment_pct,coverage_pct,mask_iou_vs_sam3
 0422_day,SAM 3,99.95,0.33,0.00,100.00,
 0422_day,Calf student (night-mined),99.96,0.22,0.02,99.99,0.948
-0422_day,Calf student (evenly spaced),82.05,0.03,1.04,82.23,0.936
 0422_day,SAM 2.1-tiny,99.96,0.31,0.01,100.00,0.954
 0422_day,EdgeTAM,73.64,51.21,0.00,100.00,0.747
 0422_day,SAM 2.1-small,99.30,0.22,0.29,99.34,0.948
 0422_dusk,SAM 3,98.86,3.91,1.13,99.99,
 0422_dusk,Calf student (night-mined),99.98,5.36,4.43,100.00,0.774
-0422_dusk,Calf student (evenly spaced),85.30,49.68,3.80,98.71,0.580
 0422_dusk,SAM 2.1-tiny,92.39,16.91,0.00,94.67,0.753
 0422_dusk,EdgeTAM,73.14,71.00,0.03,100.00,0.582
 0422_dusk,SAM 2.1-small,91.77,39.03,0.00,94.08,0.825
 0422_night,SAM 3,100.00,0,0,100.00,
 0422_night,Calf student (night-mined),100.00,0,0,100.00,0.933
-0422_night,Calf student (evenly spaced),100.00,0,0,100.00,0.887
 0422_night,SAM 2.1-tiny,100.00,0,0,100.00,0.939
 0422_night,EdgeTAM,100.00,0,0,100.00,0.886
 0422_night,SAM 2.1-small,100.00,0,0,100.00,0.932
 0423_morning,SAM 3,100.00,0,0,100.00,
 0423_morning,Calf student (night-mined),100.00,0,0,100.00,0.965
-0423_morning,Calf student (evenly spaced),100.00,0,0,100.00,0.956
 0423_morning,SAM 2.1-tiny,100.00,0,0,100.00,0.960
 0423_morning,EdgeTAM,100.00,0,0,100.00,0.953
 0423_morning,SAM 2.1-small,100.00,0,0,100.00,0.964
-"0423_dusk (v2, re-picked)",SAM 3,99.75,0.01,0.00,100.00,
-"0423_dusk (v2, re-picked)",Calf student (night-mined),95.65,0.00,2.42,100.00,0.644
-"0423_dusk (v2, re-picked)",Calf student (evenly spaced),59.57,24.27,0.14,84.07,0.485
-"0423_dusk (v2, re-picked)",SAM 2.1-tiny,99.74,0.00,0.00,100.00,0.858
-"0423_dusk (v2, re-picked)",EdgeTAM,96.50,0.30,0.03,100.00,0.820
-"0423_dusk (v2, re-picked)",SAM 2.1-small,99.74,0.00,0.00,100.00,0.864
+0423_dusk,SAM 3,99.75,0.01,0.00,100.00,
+0423_dusk,Calf student (night-mined),95.65,0.00,2.42,100.00,0.644
+0423_dusk,SAM 2.1-tiny,99.74,0.00,0.00,100.00,0.858
+0423_dusk,EdgeTAM,96.50,0.30,0.03,100.00,0.820
+0423_dusk,SAM 2.1-small,99.74,0.00,0.00,100.00,0.864
 0423_night,SAM 3,100.00,0,0,100.00,
 0423_night,Calf student (night-mined),100.00,0,0,100.00,0.877
-0423_night,Calf student (evenly spaced),98.97,4.07,0.00,100.00,0.855
 0423_night,SAM 2.1-tiny,100.00,0,0,100.00,0.857
 0423_night,EdgeTAM,99.76,0,0,100.00,0.811
 0423_night,SAM 2.1-small,100.00,0,0,100.00,0.890

@@ -1,5 +1,0 @@
-student,per-patch cosine,day,night,global cosine,scale ratio,MSE
-PigTrack student,0.6807,0.6939,0.6691,0.6077,0.9304,1.5548
-mined,0.6787,0.6875,0.6708,0.6076,0.9253,1.5474
-random draw 1,0.6807,0.6935,0.6693,0.6090,0.9355,1.5569
-random draw 2,0.6796,0.6945,0.6664,0.6052,0.9319,1.5670

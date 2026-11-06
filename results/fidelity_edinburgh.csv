@@ -1,4 +1,4 @@
 frames,n,per-patch cosine (± sd),global cosine,scale ratio,MSE
 4 held-out test clips,480,0.7570 ± 0.0061 (bf16 0.7569),0.7178,0.9499,1.1071
 val clip 2019_11_28_000113,120,0.7508,0.6922,0.9558,1.1942
-"first 20 frames of training clip 2019_11_05_000002 (the old paper's ""20 held-out frames"")",20,0.8173,0.8078,0.9489,0.7631
+first 20 frames of training clip 2019_11_05_000002,20,0.8173,0.8078,0.9489,0.7631

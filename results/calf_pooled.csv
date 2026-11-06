@@ -1,7 +1,6 @@
-model,identity_correct_pct,delta_vs_sam3_pp,ci95_low,ci95_high
+model,identity_correct_pct,difference_from_sam3_pp,ci95_low,ci95_high
 SAM 3,99.80,,,
 Calf student (night-mined),99.23,-0.57,-1.52,+0.16
-Calf student (evenly spaced),87.76,-12.04,-15.62,-8.72
 SAM 2.1-tiny,98.96,-0.84,-2.21,-0.002
 EdgeTAM,91.29,-8.51,-14.25,-3.54
 SAM 2.1-small,98.77,-1.03,-2.33,-0.11

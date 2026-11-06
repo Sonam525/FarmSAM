@@ -2,8 +2,6 @@ model,params_backbone,params_total,gflops_total_4_objects,gflops_backbone_4_obje
 SAM 3,"446,236,672","465,782,146","9,497.787","5,398.574"
 Edinburgh student,"40,655,408","60,200,882","4,520.839",421.625
 PigTrack student,"40,655,408","60,200,882","4,520.839",421.625
-PigTrack student without drop-path,"40,655,408","60,200,882",same graph as the PigTrack student,same graph as the PigTrack student
-Calf student (evenly spaced),"40,655,408","60,200,882","4,520.839",421.625
 Calf student (night-mined),"40,655,408","60,200,882","4,520.839",421.625
 SAM 2.1-tiny,"26,849,472","38,962,498","2,776.107",285.028
 SAM 2.1-small,"33,947,328","46,060,354","2,843.844",352.764

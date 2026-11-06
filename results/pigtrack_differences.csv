@@ -1,0 +1,5 @@
+comparison,hota_difference,ci95_low,ci95_high
+PigTrack student minus SAM 2.1-small,-7.65,-11.44,-3.75
+PigTrack student minus EfficientSAM3 encoder,+31.12,+26.07,+36.26
+PigTrack student (mined) minus PigTrack student,-1.03,-3.21,+1.48
+PigTrack student (mined) minus SAM 2.1-small,-8.69,-14.04,-4.05

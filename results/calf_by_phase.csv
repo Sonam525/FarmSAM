@@ -1,25 +1,21 @@
 phase,model,identity_correct_pct,mask_iou_vs_sam3
 day,SAM 3,99.95,
 day,Calf student (night-mined),99.96,0.948
-day,Calf student (evenly spaced),82.05,0.936
 day,SAM 2.1-tiny,99.96,0.954
 day,EdgeTAM,73.64,0.747
 day,SAM 2.1-small,99.30,0.948
 dusk,SAM 3,99.37,
 dusk,Calf student (night-mined),97.50,0.709
-dusk,Calf student (evenly spaced),70.56,0.536
 dusk,SAM 2.1-tiny,96.60,0.807
 dusk,EdgeTAM,86.52,0.701
 dusk,SAM 2.1-small,96.34,0.845
 morning,SAM 3,100.00,
 morning,Calf student (night-mined),100.00,0.965
-morning,Calf student (evenly spaced),100.00,0.956
 morning,SAM 2.1-tiny,100.00,0.960
 morning,EdgeTAM,100.00,0.953
 morning,SAM 2.1-small,100.00,0.964
 night,SAM 3,100.00,
 night,Calf student (night-mined),100.00,0.905
-night,Calf student (evenly spaced),99.48,0.871
 night,SAM 2.1-tiny,100.00,0.898
 night,EdgeTAM,99.88,0.849
 night,SAM 2.1-small,100.00,0.911
