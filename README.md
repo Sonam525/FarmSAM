@@ -5,6 +5,7 @@
 <p align="center">
   <a href="https://arxiv.org/abs/2604.27128"><img src="https://img.shields.io/badge/arXiv-2604.27128-b31b1b" alt="arXiv 2604.27128"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/code-MIT-2a6f7f" alt="Code licence: MIT"></a>
+  <a href="LICENSES/SAM_LICENSE.txt"><img src="https://img.shields.io/badge/weights-SAM%20License-6f4a7f" alt="Weights licence: SAM License"></a>
   <a href="docs/CHECKPOINTS.md"><img src="https://img.shields.io/badge/weights-nine%20checkpoints-16324a" alt="Nine checkpoints"></a>
   <a href="docs/RESULTS.md"><img src="https://img.shields.io/badge/results-tables%20and%20CSV-4a6f7f" alt="Results"></a>
 </p>
@@ -123,7 +124,7 @@ with torch.no_grad():
 
 To run a full tracker, `core.load_arm` swaps the student into SAM 3's tracker; `benchmark/core_bc46ecfb/Tol_63_track_bench.py` shows the streaming loop.
 
-> This snippet has not been run as written. The Hugging Face repository goes live after upload. See [docs/CHECKPOINTS.md](docs/CHECKPOINTS.md) before you load a `.pt` file.
+> We ran the benchmark on Databricks, not from this snippet, and have not tried it on a fresh install. See [docs/CHECKPOINTS.md](docs/CHECKPOINTS.md) before you load a `.pt` file.
 
 ## How to reproduce
 
@@ -133,19 +134,19 @@ Step by step, with the script behind each number: **[docs/REPRODUCE.md](docs/REP
 
 ## Checkpoints
 
-Nine student checkpoints, to be published at the planned repository [`Sonam5/FarmSAM`](https://huggingface.co/Sonam5/FarmSAM) (**links go live after upload**). Details, hashes and the loading notes are in [docs/CHECKPOINTS.md](docs/CHECKPOINTS.md).
+Nine student checkpoints are on Hugging Face at [`Sonam5/FarmSAM`](https://huggingface.co/Sonam5/FarmSAM). Details, hashes and the loading notes are in [docs/CHECKPOINTS.md](docs/CHECKPOINTS.md).
 
 | Student | Distilled on | Frames | Size | Terms |
 |:---|:---|---:|---:|:---|
-| [Edinburgh student](https://huggingface.co/Sonam5/FarmSAM/tree/main/edinburgh_noncommercial/edinburgh_student) | Edinburgh | 3,000 | 651 MB | non-commercial |
-| [Edinburgh student (mined)](https://huggingface.co/Sonam5/FarmSAM/tree/main/edinburgh_noncommercial/edinburgh_student_mined) | Edinburgh | 3,627 | 651 MB | non-commercial |
-| [PigTrack student](https://huggingface.co/Sonam5/FarmSAM/tree/main/pigtrack/pigtrack_student) | PigTrack | 3,000 | 651 MB | see below |
-| [PigTrack student without drop-path](https://huggingface.co/Sonam5/FarmSAM/tree/main/pigtrack/pigtrack_student_no_droppath) | PigTrack | 3,000 | 651 MB | see below |
-| [PigTrack student (mined)](https://huggingface.co/Sonam5/FarmSAM/tree/main/pigtrack/pigtrack_student_mined) | PigTrack | 5,125 | 651 MB | see below |
-| [PigTrack student (random, draw 1)](https://huggingface.co/Sonam5/FarmSAM/tree/main/pigtrack/pigtrack_student_random1) | PigTrack | 5,125 | 651 MB | see below |
-| [PigTrack student (random, draw 2)](https://huggingface.co/Sonam5/FarmSAM/tree/main/pigtrack/pigtrack_student_random2) | PigTrack | 5,125 | 651 MB | see below |
-| [Calf student (evenly spaced)](https://huggingface.co/Sonam5/FarmSAM/tree/main/calf/calf_student_evenly_spaced) | Calf pen, 18–19 April | 3,846 | 325 MB | see below |
-| [Calf student (night-mined)](https://huggingface.co/Sonam5/FarmSAM/tree/main/calf/calf_student_night_mined) | Calf pen, 18–19 April | 10,514 | 325 MB | see below |
+| [Edinburgh student](https://huggingface.co/Sonam5/FarmSAM/tree/main/edinburgh_noncommercial/edinburgh_student) | Edinburgh | 3,000 | 651 MB | SAM License, non-commercial |
+| [Edinburgh student (mined)](https://huggingface.co/Sonam5/FarmSAM/tree/main/edinburgh_noncommercial/edinburgh_student_mined) | Edinburgh | 3,627 | 651 MB | SAM License, non-commercial |
+| [PigTrack student](https://huggingface.co/Sonam5/FarmSAM/tree/main/pigtrack/pigtrack_student) | PigTrack | 3,000 | 651 MB | SAM License |
+| [PigTrack student without drop-path](https://huggingface.co/Sonam5/FarmSAM/tree/main/pigtrack/pigtrack_student_no_droppath) | PigTrack | 3,000 | 651 MB | SAM License |
+| [PigTrack student (mined)](https://huggingface.co/Sonam5/FarmSAM/tree/main/pigtrack/pigtrack_student_mined) | PigTrack | 5,125 | 651 MB | SAM License |
+| [PigTrack student (random, draw 1)](https://huggingface.co/Sonam5/FarmSAM/tree/main/pigtrack/pigtrack_student_random1) | PigTrack | 5,125 | 651 MB | SAM License |
+| [PigTrack student (random, draw 2)](https://huggingface.co/Sonam5/FarmSAM/tree/main/pigtrack/pigtrack_student_random2) | PigTrack | 5,125 | 651 MB | SAM License |
+| [Calf student (evenly spaced)](https://huggingface.co/Sonam5/FarmSAM/tree/main/calf/calf_student_evenly_spaced) | Calf pen, 18–19 April | 3,846 | 325 MB | SAM License |
+| [Calf student (night-mined)](https://huggingface.co/Sonam5/FarmSAM/tree/main/calf/calf_student_night_mined) | Calf pen, 18–19 April | 10,514 | 325 MB | SAM License |
 
 <sub>Frames are training plus checkpoint-selection frames. Frame counts of rows with extra frames carry the disclosures in docs/DISCLOSURES.md.</sub>
 
@@ -167,9 +168,13 @@ Nine student checkpoints, to be published at the planned repository [`Sonam5/Far
 | EfficientSAM3 | Apache-2.0 tag on the model card. The code sits in a fork of SAM 3 under the SAM License, and the checkpoint's other tensors are SAM 3 parameters | Baseline. Downloaded by you. Not redistributed. See [LICENSES/THIRD_PARTY.md](LICENSES/THIRD_PARTY.md). |
 | [TinyViT](https://github.com/microsoft/Cream/tree/main/TinyViT) | MIT (code), Apache-2.0 tag on the `timm` weights | Student trunk, started from these weights. |
 
-**Code** in this repository is MIT unless a file or the notice says otherwise. See [NOTICE.md](NOTICE.md) and [LICENSES/THIRD_PARTY.md](LICENSES/THIRD_PARTY.md).
+**Code** in this repository is MIT, except parts under other terms. The copies of `tol_es3.py` are outside the MIT grant. See [NOTICE.md](NOTICE.md) and [LICENSES/THIRD_PARTY.md](LICENSES/THIRD_PARTY.md).
 
-**Weights** are not MIT. The students were trained to match SAM 3 backbone features and run inside SAM 3's tracker, so they ship with the [SAM License](LICENSES/SAM_LICENSE.txt). Clause 1.b.iv of the SAM License bars use that would "reverse engineer, decompile or discover the underlying components" of the SAM Materials. Whether that clause reaches a student trained on features is under review, and the weights wait for that answer. The two Edinburgh students were also distilled on CC BY-NC frames, so they are marked non-commercial, research only. Neither note is legal advice.
+**Weights** are not MIT. All nine students are released under the [SAM License](LICENSES/SAM_LICENSE.txt). They were trained to match SAM 3 backbone features and run inside SAM 3's tracker, so we apply its terms to be safe. If you pass a student on, you must do so under those terms and include a copy of the licence. Its trade control limits apply.
+
+**Non-commercial limit.** The two Edinburgh students, in `edinburgh_noncommercial/`, may be used for non-commercial purposes only. They were distilled on frames of the Edinburgh pig dataset, which is CC BY-NC. This limit comes from the data licence and applies on top of the SAM License.
+
+These notes are not legal advice.
 
 ## Status
 
@@ -178,8 +183,7 @@ Nine student checkpoints, to be published at the planned repository [`Sonam5/Far
 | Preprint | [arXiv 2604.27128](https://arxiv.org/abs/2604.27128). Its notebooks are in [notebooks/arxiv/](notebooks/arxiv/README.md), with what later work corrected. |
 | Revised manuscript | In preparation. |
 | Reverse transfer: PigTrack student on Edinburgh test clips, zero-shot | **Pending.** The run has not been made, so no number exists. |
-| Scorer and three helper files | Not in this draft. See `benchmark/CODE_MANIFEST.csv`. |
-| Weights on Hugging Face | Pending upload. |
+| Scorer and three helper files | Not in this repository. See `benchmark/CODE_MANIFEST.csv`. |
 
 ## Citation
 
@@ -197,7 +201,7 @@ Nine student checkpoints, to be published at the planned repository [`Sonam5/Far
 
 The preprint's title and several of its claims predate this benchmark. Where they differ, this repository and [notebooks/arxiv/README.md](notebooks/arxiv/README.md) hold the current numbers.
 
-If you use the students, please also acknowledge SAM 3, as the SAM License asks, and cite the dataset the student was distilled on.
+If you publish results from a student, you must acknowledge SAM 3: clause 1.b.ii of the SAM License requires it. Please also cite the dataset the student was distilled on.
 
 ## Authors
 

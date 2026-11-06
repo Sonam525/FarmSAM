@@ -1,20 +1,20 @@
 file,role,sha256,status
 benchmark/calf_windows/Tol_48_score_retrack.py,calf scorer,682b88c3cdc76ae20213dd127dd7324922db89a1956e96b8db3b32db9b193399,byte-identical to the run copy
 benchmark/calf_windows/Tol_63_track_bench.py,"tracker driver, calf windows",3db34aaf543fd96b78e7f8e6d0a4ba2e062a77c687a706229644f4ebaba9ec25,byte-identical to the run copy
-benchmark/calf_windows/Tol_64_score_bench.py,"scorer, s1.3, calf windows",78bc0de7,not in this draft: pending path review
-benchmark/calf_windows/Tol_67_calf_windows.py,calf window selection,0df452a0,not in this draft: pending path review
+benchmark/calf_windows/Tol_64_score_bench.py,"scorer, s1.3, calf windows",78bc0de7,not in this repository: pending path review
+benchmark/calf_windows/Tol_67_calf_windows.py,calf window selection,0df452a0,not in this repository: pending path review
 benchmark/core_27b870bb/Tol_63_track_bench.py,tracker driver,670150c125815e3868c901fb4e0079c77fd98f7f51bf000a8d9c581c826f959a,byte-identical to the run copy
 benchmark/core_27b870bb/tol_bench_core.py,core of the mining runs,27b870bb38f7d4bf50c62a4656dff5502fcd7d84448d308d61e6afa5cb7eaae6,byte-identical to the run copy
 benchmark/core_5e705fff/tol_bench_core.py,core of the Edinburgh Protocol A run,5e705fffcb1711a427239a6bcec3e3622b9b8be69dc3e1b459643c663d460e58,byte-identical to the run copy
 benchmark/core_8689f125/Tol_63_track_bench.py,tracker driver,98ec7466afddf9bf74d0a56f2a0d140ad06d83fe3a78aa3ef2ecac8acd205920,byte-identical to the run copy
 benchmark/core_8689f125/tol_bench_core.py,core of the mining runs,8689f1259bda683ff7b93406417e91557b99f3dc265aed85fff523230045f26d,byte-identical to the run copy
 benchmark/core_bc46ecfb/Tol_63_track_bench.py,tracker driver,cd08da938fde77aa1aa8f57a10ce61d51589d8542ac5ab1033ba04dd3ff9eb24,byte-identical to the run copy
-benchmark/core_bc46ecfb/Tol_64_score_bench.py,"scorer (TrackEval driver), s1.2",3e13d4c5,not in this draft: pending path review
-benchmark/core_bc46ecfb/test_tol_bench_core.py,tests of the core,ef9fd815,not in this draft: pending path review
+benchmark/core_bc46ecfb/Tol_64_score_bench.py,"scorer (TrackEval driver), s1.2",3e13d4c5,not in this repository: pending path review
+benchmark/core_bc46ecfb/test_tol_bench_core.py,tests of the core,ef9fd815,not in this repository: pending path review
 benchmark/core_bc46ecfb/tol_bench_core.py,main benchmark core,bc46ecfb9eca56af5fc991d5ea0e3460776cc2dc1f9780c9a8c756c060132b16,byte-identical to the run copy
 benchmark/core_bc46ecfb/tol_es3.py,EfficientSAM3 encoder adapter,655173d5f8ca587b7a57a44cab4ce00281e5058c0436a701d0653102775a0768,byte-identical to the run copy
 benchmark/core_bc46ecfb/tol_paths.py,path registry reader,f6603e639ec0e010640da401afc3837ae2e3923bf9c9dd62ff3e55bc9d9d3d46,byte-identical to the run copy
-benchmark/core_bc46ecfb/tol_v5_core.py,tracking core used by the calf paths,082aaf3c,not in this draft: pending path review
+benchmark/core_bc46ecfb/tol_v5_core.py,tracking core used by the calf paths,082aaf3c,not in this repository: pending path review
 benchmark/coverage_audit/audit_analysis_lib.py,PigTrack camera-view coverage audit,ae95f017f45ddd0c21064805dd117fb0a9999e37468d6a9710d320ef041542b9,copied unchanged
 benchmark/coverage_audit/define_coverage.py,PigTrack camera-view coverage audit,267e0e007aee7d94d864764e7989b03711e6c79d7a42bdf3493af7c1676cb621,copied unchanged
 benchmark/coverage_audit/run_outcomes.py,PigTrack camera-view coverage audit,0f73016bd481c3d2709796243019c18ce9bb24008cd384df2b6ea45c0bbc2236,copied unchanged

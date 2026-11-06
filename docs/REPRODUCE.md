@@ -6,14 +6,14 @@ This page says what ran, in which order, and which parts you can rerun today.
 
 | Result | Can you rerun it? |
 |:---|:---|
-| Student training on PigTrack | Partly. It needs PigTrack and SAM 3 access, and you stage the dataset yourself: the staging notebook, seqmaps and split file are not in this draft |
+| Student training on PigTrack | Partly. It needs PigTrack and SAM 3 access, and you stage the dataset yourself: the staging notebook, seqmaps and split file are not in this repository |
 | Student training on Edinburgh | Yes, with the Edinburgh dataset and SAM 3 access. Non-commercial data |
 | Student training on calves | Not until the calf dataset hold ends |
 | Tracking on PigTrack, Protocol A and D | Partly. `core_bc46ecfb` runs it after you stage PigTrack and copy [`benchmark/protocol/`](../benchmark/protocol/README.md) under your registry root. Protocol D also needs a detector from `Tol_71_rfdetr_pig_train.py` |
 | Tracking on Edinburgh, Protocol A | Partly. The core that ran it is here (`core_5e705fff`), but the `Tol_63` copy that ran with it is not. Use `core_bc46ecfb`: its MOT files for SAM 3 and the Edinburgh student are byte-identical to the original run on all 4 clips. SAM 2.1 and EdgeTAM have no such byte check |
-| Accuracy scores | Not from this draft: the scorer is held back (see below) |
-| Calf scoring | Not yet. It needs the calf videos and the reference masks, which are not released |
-| Latency and memory | Not from this draft for the 4-object rows: they read `calf_windows_v1.json` and a calf clip, and neither is released. The numbers are for one A10 vGPU |
+| Accuracy scores | Not from this repository: the scorer is held back (see below) |
+| Calf scoring | No. It needs the calf videos and the reference masks, which are not released |
+| Latency and memory | Not from this repository for the 4-object rows: they read `calf_windows_v1.json` and a calf clip, and neither is released. The numbers are for one A10 vGPU |
 
 `requirements.txt` lists the packages as they ran. It has not been installed as a whole outside the run environment. The runs used Python 3.12.3.
 
@@ -98,7 +98,7 @@ Pruning runs at `k16` with the `processed_frames` pop for every model. `k8` is n
 
 Scoring ran through `Tol_64_score_bench.py`, with TrackEval at the pinned commit and py-motmetrics as a cross-check. The MOT xy offset is frozen at 0 on both pig datasets.
 
-**`Tol_64_score_bench.py`, `Tol_67_calf_windows.py`, `tol_v5_core.py` and `test_tol_bench_core.py` are not in this draft.** Each needs one path line reviewed before release. The stored score tables are in [`results/scores/`](../results/scores/).
+**`Tol_64_score_bench.py`, `Tol_67_calf_windows.py`, `tol_v5_core.py` and `test_tol_bench_core.py` are not in this repository.** Each needs one path line reviewed before it can be published. The stored score tables are in [`results/scores/`](../results/scores/).
 
 ### 5. Efficiency
 

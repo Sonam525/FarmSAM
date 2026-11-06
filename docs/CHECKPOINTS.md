@@ -1,6 +1,6 @@
 # Checkpoints
 
-Nine student checkpoints will be published at the planned Hugging Face repository [`Sonam5/FarmSAM`](https://huggingface.co/Sonam5/FarmSAM). **The links go live after upload.** GitHub holds no weights.
+Nine student checkpoints are on Hugging Face at [`Sonam5/FarmSAM`](https://huggingface.co/Sonam5/FarmSAM). GitHub holds no weights.
 
 Each student has the same architecture: TinyViT-21M-512 trunk plus a feature-pyramid head, 40,655,408 parameters. It replaces SAM 3's image backbone. You still need SAM 3's own tracker weights from Meta.
 
@@ -48,4 +48,6 @@ student, meta = core.load_student(path, device="cuda")
 
 ## Terms
 
-See [the README](../README.md#datasets-and-licences). In short: not MIT. The weights ship with the SAM License. The two Edinburgh students are also marked non-commercial and research only, and they sit in their own folder.
+Not MIT. All nine students are released under the [SAM License](../LICENSES/SAM_LICENSE.txt), and the Hugging Face repository carries a copy. If you pass a student on, you must do so under those terms and include a copy of the licence. If you publish results from a student, you must acknowledge SAM 3.
+
+The two Edinburgh students, in `edinburgh_noncommercial/`, may also be used for non-commercial purposes only, because they were distilled on CC BY-NC frames. See [the README](../README.md#datasets-and-licences) and [NOTICE.md](../NOTICE.md).

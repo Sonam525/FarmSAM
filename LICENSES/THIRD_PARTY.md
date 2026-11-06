@@ -4,7 +4,7 @@ None of these is copied into this repository, except where the "Use" column says
 
 | Component | Upstream terms | Use |
 |:---|:---|:---|
-| SAM 3 (`facebook/sam3`) | SAM License, last updated 19 Nov 2025; gated | Teacher and tracker. Downloaded by the reader. A copy of the licence is in this folder. |
+| SAM 3 (`facebook/sam3`) | SAM License, last updated 19 Nov 2025; gated | Teacher and tracker. Downloaded by the reader. A copy of the licence is in this folder. The students on Hugging Face are released under it. |
 | Transformers | Apache-2.0 | Installed by pip. |
 | TinyViT | MIT (Microsoft, `Cream/TinyViT`); `timm` weights tagged Apache-2.0 | Student trunk. Installed through `timm`; weights downloaded. |
 | SAM 2.1 | Apache-2.0 | Baseline. Downloaded by the reader. |
