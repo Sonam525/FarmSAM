@@ -18,8 +18,8 @@ The `arm` setting takes these model keys:
 | Key | Model |
 |:---|:---|
 | `T` | SAM 3 |
-| `S-Edi`, `S-Edi-mined` | Edinburgh student, Edinburgh student (mined) |
-| `S-PT`, `S-PT-mined` | PigTrack student, PigTrack student (mined) |
+| `S-Edi` | Edinburgh student |
+| `S-PT` | PigTrack student |
 | `S-v2` | Calf student (night-mined) |
 | `T21`, `S21` | SAM 2.1-tiny, SAM 2.1-small |
 | `ET` | EdgeTAM |

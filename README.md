@@ -106,9 +106,7 @@ Students are on Hugging Face at [`Sonam5/FarmSAM`](https://huggingface.co/Sonam5
 |:---|:---|---:|---:|:---|
 | [Calf student (night-mined)](https://huggingface.co/Sonam5/FarmSAM/tree/main/calf/calf_student_night_mined) | Dairy calves, day and night | 10,514 | 325 MB | SAM License |
 | [PigTrack student](https://huggingface.co/Sonam5/FarmSAM/tree/main/pigtrack/pigtrack_student) | PigTrack | 3,000 | 651 MB | SAM License |
-| [PigTrack student (mined)](https://huggingface.co/Sonam5/FarmSAM/tree/main/pigtrack/pigtrack_student_mined) | PigTrack, with extra selected frames | 5,125 | 651 MB | SAM License |
 | [Edinburgh student](https://huggingface.co/Sonam5/FarmSAM/tree/main/edinburgh_noncommercial/edinburgh_student) | Edinburgh | 3,000 | 651 MB | SAM License, non-commercial |
-| [Edinburgh student (mined)](https://huggingface.co/Sonam5/FarmSAM/tree/main/edinburgh_noncommercial/edinburgh_student_mined) | Edinburgh, with extra selected frames | 3,627 | 651 MB | SAM License, non-commercial |
 
 ## Datasets and licences
 
@@ -126,7 +124,7 @@ Students are on Hugging Face at [`Sonam5/FarmSAM`](https://huggingface.co/Sonam5
 
 **Weights** are not MIT. All students are released under the [SAM License](LICENSES/SAM_LICENSE.txt). They were trained to match SAM 3 backbone features and run inside SAM 3's tracker, so we apply its terms to be safe. If you pass a student on, you must do so under those terms and include a copy of the licence. Its trade control limits apply.
 
-**Non-commercial limit.** The two Edinburgh students, in `edinburgh_noncommercial/`, may be used for non-commercial purposes only. They were distilled on frames of the Edinburgh pig dataset, which is CC BY-NC. This limit comes from the data licence and applies on top of the SAM License.
+**Non-commercial limit.** The Edinburgh student, in `edinburgh_noncommercial/`, may be used for non-commercial purposes only. It was distilled on frames of the Edinburgh pig dataset, which is CC BY-NC. This limit comes from the data licence and applies on top of the SAM License.
 
 These notes are not legal advice.
 

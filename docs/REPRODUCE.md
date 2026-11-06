@@ -36,14 +36,12 @@ Copy the files in [`benchmark/config/`](../benchmark/config/) to `paper1_distill
 
 ## Train a student
 
-Training has three steps: store SAM 3 targets, mine extra frames if you want them, then train. The target and mining scripts run on an A100 unless noted.
+Training has two steps: store SAM 3 targets, then train. The calf student adds a mining step in between. The target and mining scripts run on an A100.
 
 | Student | Targets | Extra frames | Training |
 |:---|:---|:---|:---|
 | Edinburgh | `notebooks/arxiv/SAM3_Baseline___feature_extraction.ipynb` | | `notebooks/arxiv/Student_TeacherDecoder_TinyViT_cleaned.ipynb` |
-| Edinburgh (mined) | as above | `measure_edinburgh_hard_frames.py` (A10), `edinburgh_frame_similarity.py`, `select_targets_edinburgh.py` (both CPU) | `distill_edinburgh_mined.py` |
 | PigTrack | `extract_teacher_targets_pigtrack.py` | | `distill_student_pigtrack.py` |
-| PigTrack (mined) | as above | `mine_targets_pigtrack.py` | `distill_pigtrack_mined.py` |
 | Calf (night-mined) | `extract_teacher_targets.py` | `mine_targets.py` | `distill_student.py` |
 
 Scripts without a folder are in [`distillation/`](../distillation/README.md). Recipe and recorded training times are in [RESULTS.md](RESULTS.md#training-details). To apply this to your own farm, the calf scripts are the simplest starting point: they read a folder of videos, so set the storage paths, the day list and the file name pattern at the top.

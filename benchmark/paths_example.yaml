@@ -27,9 +27,7 @@ datasets:
     videos: {space: mount, path: calves/Videos, read_only: true}
 models:
   student_edinburgh: {space: volume, path: models/sam3_student_tinyvit/edinburgh_ema_ep75/best_backbone_student.pt}
-  student_edinburgh_mined: {space: volume, path: models/sam3_student_tinyvit/edinburgh_mined_v1/best_backbone_student_edinburgh.pt}
   student_pigtrack: {space: volume, path: models/sam3_student_tinyvit/pigtrack_v2_dp01/best_backbone_student_pigtrack.pt}
-  student_pigtrack_mined: {space: volume, path: models/sam3_student_tinyvit/pigtrack_mined_v1/best_backbone_student_pigtrack.pt}
   student_calf: {space: volume, path: models/sam3_student_tinyvit/calf_night_mined/best_backbone_student_v2.pt, sha256: ebf7a771bd5ac853ec1a44f209e5efe97bbdd4436a12c758d901634e2660376d}
   detector_pig_pt: {space: volume, path: models/rfdetr_box_pig/d_pt_v1}
   detector_pig_edi: {space: volume, path: models/rfdetr_box_pig/d_edi_v1}

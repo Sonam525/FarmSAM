@@ -10,11 +10,11 @@ Code in this repository is under the MIT licence in [LICENSE](LICENSE), unless a
 
 ## Weights
 
-No weights are in this repository. The five student checkpoints are published on Hugging Face at [`Sonam5/FarmSAM`](https://huggingface.co/Sonam5/FarmSAM). MIT does not apply to them.
+No weights are in this repository. The three student checkpoints are published on Hugging Face at [`Sonam5/FarmSAM`](https://huggingface.co/Sonam5/FarmSAM). MIT does not apply to them.
 
-All five students are released under the [SAM License](LICENSES/SAM_LICENSE.txt). They are trained to match features of the SAM 3 image backbone, hold TinyViT and head tensors, and run inside SAM 3's tracker, so we apply its terms to be safe. Anyone who passes a student on must do so under those terms and include a copy of the licence. SAM 3 itself is not redistributed here: you download it from Meta under its gate.
+All three students are released under the [SAM License](LICENSES/SAM_LICENSE.txt). They are trained to match features of the SAM 3 image backbone, hold TinyViT and head tensors, and run inside SAM 3's tracker, so we apply its terms to be safe. Anyone who passes a student on must do so under those terms and include a copy of the licence. SAM 3 itself is not redistributed here: you download it from Meta under its gate.
 
-**Non-commercial limit.** The two Edinburgh students may be used for non-commercial purposes only. They were distilled on frames of the Edinburgh pig dataset (CC BY-NC). This limit comes from the data licence and applies on top of the SAM License.
+**Non-commercial limit.** The Edinburgh student may be used for non-commercial purposes only. It was distilled on frames of the Edinburgh pig dataset (CC BY-NC). This limit comes from the data licence and applies on top of the SAM License.
 
 ## Acknowledgement
 

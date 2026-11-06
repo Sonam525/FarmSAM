@@ -21,7 +21,7 @@
 # MAGIC | `dataset` | `edinburgh`, `pigtrack`, `calf` | `calf` = the calf windows |
 # MAGIC | `split` | edinburgh `test`, `val`, `all`; pigtrack `test`, `val`; calf `windows_v1`, `windows_v2` | empty = `test` (pigs) / `windows_v1` |
 # MAGIC | `seqs` | comma list | empty = every sequence of the split |
-# MAGIC | `arm` | `T` `S-Edi` `S-Edi-mined` `S-PT` `S-PT-mined` `S-v2` `T21` `S21` `ET` `ES-L` | model key: see benchmark/README.md |
+# MAGIC | `arm` | `T` `S-Edi` `S-PT` `S-v2` `T21` `S21` `ET` `ES-L` | model key: see benchmark/README.md |
 # MAGIC | `protocol` | `A`, `D` | see above |
 # MAGIC | `detector_ckpt` | `<models.* registry key>[:<file inside it>]` | `protocol=D` only; empty = the pig detector of the dataset |
 # MAGIC | `detector_resolution` | int | `protocol=D` only, required |
@@ -160,9 +160,9 @@ CALF_WINDOWS_FILES = {"windows_v1": ("calf_windows_v1", "calf_windows_v1.json"),
 # Which models run on which dataset, protocol and split. Other pairs need variant=explore_*.
 _NONSTUDENT = {"T", "T21", "S21", "ET", "ES-L"}
 MATRIX = {
-    ("edinburgh", "A"): {"test": _NONSTUDENT | {"S-Edi", "S-Edi-mined"}, "val": {"T"}, "all": set(_NONSTUDENT)},
+    ("edinburgh", "A"): {"test": _NONSTUDENT | {"S-Edi"}, "val": {"T"}, "all": set(_NONSTUDENT)},
     ("edinburgh", "D"): {"test": _NONSTUDENT | {"S-Edi"}},
-    ("pigtrack", "A"): {"test": _NONSTUDENT | {"S-PT", "S-PT-mined"}, "val": {"T"}},
+    ("pigtrack", "A"): {"test": _NONSTUDENT | {"S-PT"}, "val": {"T"}},
     ("pigtrack", "D"): {"test": _NONSTUDENT | {"S-PT"}, "val": {"T"}},
     ("calf", "A"): {"windows_v1": _NONSTUDENT | {"S-v2"},
                     "windows_v2": _NONSTUDENT | {"S-v2"}},

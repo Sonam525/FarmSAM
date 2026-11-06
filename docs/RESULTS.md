@@ -58,13 +58,12 @@ Six 30-minute windows at 5 fps, 9,000 frames each, with 4 calves in one overhead
 
 ## Edinburgh
 
-4 test clips of 600 decoded frames, with 8 pigs per clip. Tracks are seeded from reference boxes at the first frame. The Edinburgh students were distilled on clips of the same pen; the other models use their published weights.
+4 test clips of 600 decoded frames, with 8 pigs per clip. Tracks are seeded from reference boxes at the first frame. The Edinburgh student was distilled on clips of the same pen; the other models use their published weights.
 
 | model | HOTA | DetA | AssA | LocA | MOTA | IDF1 | IDSW | mean TP IoU | FP / FN |
 |:---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 | SAM 3 | 75.5437 | 72.95 | 79.27 | 80.00 | 96.7500 | 98.3750 | 0 | 76.44 | 312 / 312 |
 | Edinburgh student | 74.0540 | 70.75 | 78.83 | 79.15 | 95.1667 | 97.5833 | 0 | 75.16 | 464 / 464 |
-| Edinburgh student (mined) | 74.1332 | 70.76 | 79.03 | 79.22 | 95.2917 | 97.6458 | 0 | 75.20 | 452 / 452 |
 | SAM 2.1-tiny | 74.5168 | 71.58 | 78.81 | 79.19 | 95.2917 | 97.6458 | 2 | 75.45 | 451 / 451 |
 | SAM 2.1-small | 75.1813 | 72.48 | 79.04 | 79.72 | 96.3333 | 98.1667 | 0 | 76.11 | 352 / 352 |
 | EdgeTAM | 71.2139 | 66.07 | 78.36 | 79.38 | 86.2604 | 93.1198 | 2 | 75.76 | 1,318 / 1,318 |
@@ -78,7 +77,6 @@ Six 30-minute windows at 5 fps, 9,000 frames each, with 4 calves in one overhead
 |:---|---:|---:|---:|---:|
 | SAM 3 | 74.37 | 81.04 | 78.25 | 66.69 |
 | Edinburgh student | 72.20 | 80.28 | 76.19 | 65.91 |
-| Edinburgh student (mined) | 72.66 | 80.53 | 75.57 | 65.88 |
 | SAM 2.1-tiny | 72.70 | 79.57 | 77.85 | 66.39 |
 | SAM 2.1-small | 74.16 | 80.12 | 78.49 | 66.01 |
 | EdgeTAM | 73.61 | 64.71 | 79.57 | 65.40 |
@@ -100,13 +98,12 @@ Six 30-minute windows at 5 fps, 9,000 frames each, with 4 calves in one overhead
 
 ## PigTrack
 
-25 test sequences with 8,939 frames and 180,927 boxes, 15 by day and 10 by night. Tracks are seeded from reference boxes at the first frame. The PigTrack students were distilled on training sequences from the nine pens that also appear in the test set; the other models use their published weights.
+25 test sequences with 8,939 frames and 180,927 boxes, 15 by day and 10 by night. Tracks are seeded from reference boxes at the first frame. The PigTrack student was distilled on training sequences from the nine pens that also appear in the test set; the other models use their published weights.
 
 | model | HOTA | DetA | AssA | LocA | MOTA | IDF1 | IDSW | HOTA difference from SAM 3 [95 % CI] |
 |:---|---:|---:|---:|---:|---:|---:|---:|---:|
 | SAM 3 | 85.8720 | 83.52 | 88.63 | 90.14 | 92.85 | 95.96 | 41 |  |
 | PigTrack student | 73.2508 | 67.49 | 80.28 | 84.80 | 73.59 | 85.58 | 141 | −12.62 [−16.39, −8.79] |
-| PigTrack student (mined) | 72.2162 | 65.67 | 80.32 | 84.32 | 71.04 | 84.75 | 114 | −13.66 [−19.04, −8.90] |
 | SAM 2.1-tiny | 79.3755 | 75.41 | 84.23 | 86.78 | 86.07 | 92.53 | 79 | −6.50 [−7.51, −5.70] |
 | SAM 2.1-small | 80.9033 | 76.94 | 85.62 | 87.83 | 86.75 | 92.73 | 71 | −4.97 [−5.70, −4.32] |
 | EdgeTAM | 71.1625 | 66.60 | 76.69 | 84.77 | 69.93 | 83.31 | 282 | −14.71 [−16.53, −12.69] |
@@ -116,7 +113,7 @@ Six 30-minute windows at 5 fps, 9,000 frames each, with 4 calves in one overhead
 
 <sub>Paired bootstrap of the 25 sequences, B = 10,000, seed 20261014, stratified by day and night.</sub>
 
-Other paired differences in HOTA, with 95 % CI: PigTrack student minus SAM 2.1-small, −7.65 [−11.44, −3.75]; PigTrack student minus EfficientSAM3 encoder, +31.12 [+26.07, +36.26]; PigTrack student (mined) minus PigTrack student, −1.03 [−3.21, +1.48]; PigTrack student (mined) minus SAM 2.1-small, −8.69 [−14.04, −4.05]. They are in [`results/pigtrack_differences.csv`](../results/pigtrack_differences.csv).
+Other paired differences in HOTA, with 95 % CI: PigTrack student minus SAM 2.1-small, −7.65 [−11.44, −3.75]; PigTrack student minus EfficientSAM3 encoder, +31.12 [+26.07, +36.26]. They are in [`results/pigtrack_differences.csv`](../results/pigtrack_differences.csv).
 
 **Day and night.**
 
@@ -124,7 +121,6 @@ Other paired differences in HOTA, with 95 % CI: PigTrack student minus SAM 2.1-s
 |:---|---:|---:|---:|---:|---:|---:|---:|---:|
 | SAM 3 | 88.39 | 90.58 | 97.10 | 83.50 | 86.63 | 94.90 |  |  |
 | PigTrack student | 70.82 | 79.11 | 81.29 | 75.56 | 81.29 | 89.62 | −17.57 [−22.77, −10.52] | −7.94 [−10.02, −5.73] |
-| PigTrack student (mined) | 68.36 | 78.14 | 79.41 | 75.87 | 82.16 | 89.74 | −20.03 [−27.01, −11.37] | −7.62 [−9.91, −5.57] |
 | SAM 2.1-tiny | 83.63 | 86.98 | 95.22 | 75.34 | 81.12 | 90.01 | −4.76 [−5.73, −3.95] | −8.16 [−9.97, −6.87] |
 | SAM 2.1-small | 84.40 | 87.54 | 95.50 | 77.61 | 83.60 | 90.13 | −3.98 [−4.59, −3.12] | −5.88 [−7.29, −4.75] |
 | EdgeTAM | 74.21 | 79.04 | 85.65 | 68.27 | 74.26 | 81.11 | −14.18 [−16.86, −10.57] | −15.22 [−17.54, −12.76] |
@@ -175,7 +171,7 @@ Here an RF-DETR detector finds the animals, instead of reference boxes at the fi
 
 <sub>Data: [`results/models.csv`](../results/models.csv)</sub>
 
-GFLOPs are per frame at 4 objects. Total parameters include the tracker, so the student system (60.20 M) is larger in total than SAM 2.1-tiny (38.96 M), SAM 2.1-small (46.06 M) and EdgeTAM (13.90 M). Every student has the same architecture. The two mined students were not timed separately.
+GFLOPs are per frame at 4 objects. Total parameters include the tracker, so the student system (60.20 M) is larger in total than SAM 2.1-tiny (38.96 M), SAM 2.1-small (46.06 M) and EdgeTAM (13.90 M). Every student has the same architecture.
 
 The next tables are at 4 objects. Input: the calf window of the night of 22 April, 2304×1296 frames, 32 warm-up plus 500 timed frames, decode in the loop. For students the "model span" excludes the student, which runs outside the Hugging Face graph.
 
@@ -246,9 +242,7 @@ Each student is a TinyViT-21M-512 trunk with a feature-pyramid head, 40,655,408 
 |:---|---:|---:|---:|---:|---:|
 | Calf student (night-mined) | 10,514 (10,173 + 341) | 76 / 61 | 10.58 h (+ 3 h 46 m selection job) | 0.1973 | 0.8121 (training log) |
 | Edinburgh student | 3,000 (2,400 + 600) | 90 / 75 (one A10) | not logged | 0.25042 | 0.7570 on the 4 test clips (480 frames); 0.7508 on the validation clip |
-| Edinburgh student (mined) | 3,627 (3,027 + 600) | 85 / 70 (one A100; early stopping) | 4.26 h (15342.1 s; job wall 4.457 h) | 0.24652 | 0.7555 on the validation clip (600 frames); not measured on the 4 test clips |
 | PigTrack student | 3,000 (2,626 + 374) | 47 / 32 (A100) | 1.95 h (7,003.4 s) | 0.3266 | 0.6807 (374 selection frames of 4 whole held-out sequences) |
-| PigTrack student (mined) | 5,125 (4,751 + 374) | 42 / 27 | 2.89 h | 0.3268 | 0.6787 |
 
 <sub>Data: [`results/training.csv`](../results/training.csv)</sub>
 
@@ -264,12 +258,11 @@ Edinburgh student:
 
 <sub>Data: [`results/fidelity_edinburgh.csv`](../results/fidelity_edinburgh.csv)</sub>
 
-PigTrack students, on 374 selection frames of 4 whole held-out sequences:
+PigTrack student, on 374 selection frames of 4 whole held-out sequences:
 
 | student | per-patch cosine (± sd) | global cosine | scale ratio | MSE | day / night per-patch |
 |:---|---:|---:|---:|---:|---:|
 | PigTrack student | 0.6807 ± 0.048 | 0.6077 | 0.9304 | 1.5548 | 0.6939 / 0.6691 |
-| PigTrack student (mined) | 0.6787 | 0.6076 | 0.9253 | 1.5474 | 0.6875 / 0.6708 |
 
 <sub>Data: [`results/fidelity_pigtrack.csv`](../results/fidelity_pigtrack.csv)</sub>
 
@@ -278,7 +271,6 @@ PigTrack students, on 374 selection frames of 4 whole held-out sequences:
 - **Calf identity.** Identity is scored against expert-verified identity chains on masks from an earlier tracking run of the night-mined calf student, so the reference is not independent of that student. Mask agreement is measured against SAM 3. The scores measure seeded-track continuity. The masks are not manual segmentations, and calf-frames whose reference identity was not trusted are excluded.
 - **Calf student and calf windows.** The night-mined frames were added after an earlier calf student had night tracking problems on 22 April, one of the two evaluation days. No frame of 22 or 23 April was used for training. The 23 April dusk window runs from 20:52:13.0 to 21:22:12.8, so 74 % of its frames fall after 21:00. It was picked again, by a rule that used the reference pipeline's detector, after the seed of one calf in the first pick landed on a floor patch.
 - **Edinburgh.** With 4 clips there are too few for intervals, so the Edinburgh tables have none.
-- **Mined students.** Each is one training run. The Edinburgh mined and base students also differ in seed, GPU and library versions, so their small gap should not be read as an effect of the extra frames.
 - **EfficientSAM3 encoder.** This is the EfficientSAM3 Stage-1 encoder inside SAM 3's unchanged tracker, not the full EfficientSAM3 system: Stage-2 memory weights were unreleased as of 2026-10-08. The module has 30.65 M parameters [20.62 M TinyViT trunk]. We ran it on an A10 under our common bf16 setup. Agreement with the authors' code (mean mask IoU) is 0.962 on Edinburgh and 0.846 on crowded PigTrack. We load the checkpoint before eval(), so TinyViT attention biases are non-zero; with the authors' code as shipped, where eval() comes first and the biases stay at zero, agreement is 0.947 and 0.815. It has no calf row because it did not pass seeding: on the night window of 22 April it stopped emitting 2 of the 4 mask-seeded calves within 4 frames.
 - **Memory.** The memory bound comes from pruning plus frame-cache release, not from distillation.
 - **Speed.** The student's speed ratio over SAM 3 is 1.49–1.54× at 4 objects and falls with more objects: 1.10× end to end on one PigTrack sequence with 25 and 28 objects in the session. Speed and memory were measured on one A10 vGPU only. Nothing was measured on an embedded device, and energy was not available on the vGPU.
