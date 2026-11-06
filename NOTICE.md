@@ -1,5 +1,7 @@
 # Notice
 
+Licence holder: Haiyu Yang.
+
 ## Code
 
 Code in this repository is under the MIT licence in [LICENSE](LICENSE), unless a file or the list below says otherwise.

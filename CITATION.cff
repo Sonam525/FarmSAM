@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "If you use this code or the checkpoints, please cite the preprint."
+message: "If you use this code or the checkpoints, please cite the preprint. Licence holder: Haiyu Yang."
 title: "FarmSAM"
 repository-code: "https://github.com/Sonam525/FarmSAM"
 license: MIT
