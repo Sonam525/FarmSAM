@@ -1,0 +1,13 @@
+{
+ "tau": 0.7,
+ "rule": "highest pooled PigTrack val HOTA with SAM 3; values within 0.1 HOTA tie and the larger tau wins",
+ "val_hota_by_tau": {
+  "0.3": 84.57801653721705,
+  "0.4": 84.94958057438348,
+  "0.46": 84.90266444429156,
+  "0.5": 84.90266444429156,
+  "0.6": 84.8951367226903,
+  "0.7": 84.93693298933937
+ },
+ "version": "detector_threshold"
+}

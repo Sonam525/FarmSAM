@@ -1,0 +1,34 @@
+{
+ "checkpoint": {
+  "hf_repo": "Simon7108528/EfficientSAM3",
+  "file": "stage1_all_converted/efficient_sam3_tinyvit_l.pt",
+  "revision": "85b05896928f974e308f889d7ccb2eefc069de98",
+  "sha256": "8209c620d728624b10136696bb3ce30b97e83e476b9ec9f41b0472ee5be7b0c1",
+  "size": 1778451881,
+  "card_license": "apache-2.0"
+ },
+ "efficientsam3_commit": "bd0936c788fed8d51fa799437f05abd97b401b06",
+ "tinyvit_source": {
+  "relpath": "third_party/efficientsam3/src_bd0936c788fe/tiny_vit.py",
+  "sha256": "6e1bdc938c48254268dc6ff7e0c4f8825c6479c33c5ac2af42dd9a097aff0995"
+ },
+ "trunk": {
+  "format": "es3_trunk_v1",
+  "registry_key": "models.es3_trunk",
+  "encoder": {
+   "embed": [
+    1024,
+    72,
+    72
+   ],
+   "image_size": 1008,
+   "model_name": "21m",
+   "n_attention": 10,
+   "n_batchnorm": 28,
+   "n_params": 30650496,
+   "n_params_head": 10030080,
+   "n_params_tinyvit": 20620416,
+   "n_tensors": 300
+  }
+ }
+}

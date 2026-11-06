@@ -1,5 +1,5 @@
-# Example path registry for this repository. Copy it, set the three roots, and point CALF_PATHS at your copy.
-# Logical keys are read by benchmark/core_bc46ecfb/tol_paths.py.
+# Example path registry. Copy it, set the three roots, and point the CALF_PATHS environment variable at your copy.
+# Keys are read by benchmark/core/farm_paths.py.
 version: 1
 created: "2026-10-09"
 roots:
@@ -17,49 +17,23 @@ datasets:
     annotated: {space: volume, path: datasets/edinburgh_pigs/annotated}
     decoded_frames: {space: volume, path: datasets/edinburgh_pigs/decoded_frames}
     initial_prompts: {space: volume, path: datasets/edinburgh_pigs/initial_prompts}
-    behaviour_metadata: {space: volume, path: datasets/edinburgh_pigs/derived/behaviour_metadata}
-    embeddings: {space: volume, path: datasets/edinburgh_pigs/derived/dinov3_vits16_embeddings}
-    coco_train: {space: volume, path: datasets/edinburgh_pigs/derived/coco_train_clips0-3, note: "CC BY-NC"}
-    gt_mot: {space: volume, path: datasets/edinburgh_pigs/derived/gt_mot_interp_v1, note: "CC BY-NC"}
-    splits: {space: volume, path: datasets/edinburgh_pigs/splits.yaml}
   pigtrack:
-    root: {space: volume, path: datasets/pigtrack, owner: Tol_62_pigtrack_stage}
+    root: {space: volume, path: datasets/pigtrack}
     raw: {space: volume, path: datasets/pigtrack/raw}
     sequences: {space: volume, path: datasets/pigtrack/sequences, per_split: true}
     seqmaps: {space: volume, path: datasets/pigtrack/seqmaps}
     split_file: {space: volume, path: datasets/pigtrack/split.txt}
-    coco: {space: volume, path: datasets/pigtrack/derived}
-  tol_ch01:
-    videos: {space: mount, path: Tol/Videos, read_only: true}
-    frames_5fps: {space: volume, path: Tol/Frames_5fps, per_day: true, read_only: true}
-    frames_5fps_index: {space: volume, path: datasets/calves_tol_ch01/frames_5fps_index, per_day: true}
-    metadata: {space: volume, path: datasets/calves_tol_ch01/metadata}
-    ground_truth: {space: volume, path: datasets/calves_tol_ch01/ground_truth/v1}
-    ground_truth_current: {space: volume, path: datasets/calves_tol_ch01/ground_truth/CURRENT.yaml}
-gt_versions:
-  TRN-T: {path: train_20240418_20240419/TRN-T_teacher_v4, days: ["20240418", "20240419"], tracker: teacher, layout: windows, labels: train_20240418_20240419/labels/relabel_train_week_seamv2}
-  0422-T: {path: val_20240422_20240423/20240422/0422-T_teacher, days: ["20240422"], tracker: teacher, rules: reid_ground_truth_teacher_0422.json}
-  0422-S: {path: g/0422S, days: ["20240422"], tracker: student_v2, labels: segment_assignments_reviewed.json}
-  0423-T: {path: val_20240422_20240423/20240423/0423-T_teacher_w1800-2400, days: ["20240423"], tracker: teacher, window: "18:02-23:51"}
-  0423-S: {path: g/0423S, days: ["20240423"], tracker: student_v2, labels: segment_assignments.json}
-  0423-TS: {composite: [0423-T, 0423-S], days: ["20240423"], rule: "0423-T where it exists (18:02-23:51), else 0423-S"}
-  0424-S: {path: test_20240424/0424-S_student_v4v2p2, days: ["20240424"], tracker: student_v4v2p2, notes: test_20240424/notes/gt_0424_from_user_notes.json}
-  EV-0425-0428: {path: test_20240425_20240428, days: ["20240425", "20240426", "20240427", "20240428"], kind: events}
+  calves:
+    videos: {space: mount, path: calves/Videos, read_only: true}
 models:
   student_edinburgh: {space: volume, path: models/sam3_student_tinyvit/edinburgh_ema_ep75/best_backbone_student.pt}
-  student_edinburgh_fp16: {space: volume, path: models/sam3_student_tinyvit/edinburgh_ema_ep75/student_backbone_fp16.pt}
-  student_tol_v1: {space: volume, path: models/sam3_student_tinyvit/tol_ch01_v1/best_backbone_student.pt}
-  student_tol_v2: {space: volume, path: models/sam3_student_tinyvit/tol_ch01_v2/best_backbone_student_v2.pt, sha256: ebf7a771bd5ac853ec1a44f209e5efe97bbdd4436a12c758d901634e2660376d}
-  student_tol_v2_live: {space: volume, path: Tol/Checkpoints/best_backbone_student_v2.pt, sha256: ebf7a771bd5ac853ec1a44f209e5efe97bbdd4436a12c758d901634e2660376d, read_only: true}
-  student_pigtrack: {space: volume, path: models/sam3_student_tinyvit/pigtrack_v1/best_backbone_student_pigtrack.pt}
-  detector_segv1d: {space: volume, path: models/rfdetr_seg_calf/segv1d_r624/checkpoint_best_total.pth, sha256: 163b73b1c3b0c2cb61aa70931990c1f79ddd1aa27f72da2d13dbc2606e0f7057}
-  detector_segv1d_live: {space: volume, path: Tol/Detector_Checkpoints/segv1d_tracked_seg-small_r624/checkpoint_best_total.pth, sha256: 163b73b1c3b0c2cb61aa70931990c1f79ddd1aa27f72da2d13dbc2606e0f7057, read_only: true}
+  student_edinburgh_mined: {space: volume, path: models/sam3_student_tinyvit/edinburgh_mined_v1/best_backbone_student_edinburgh.pt}
+  student_pigtrack: {space: volume, path: models/sam3_student_tinyvit/pigtrack_v2_dp01/best_backbone_student_pigtrack.pt}
+  student_pigtrack_mined: {space: volume, path: models/sam3_student_tinyvit/pigtrack_mined_v1/best_backbone_student_pigtrack.pt}
+  student_calf: {space: volume, path: models/sam3_student_tinyvit/calf_night_mined/best_backbone_student_v2.pt, sha256: ebf7a771bd5ac853ec1a44f209e5efe97bbdd4436a12c758d901634e2660376d}
   detector_pig_pt: {space: volume, path: models/rfdetr_box_pig/d_pt_v1}
   detector_pig_edi: {space: volume, path: models/rfdetr_box_pig/d_edi_v1}
-  anchor_pool_v1: {space: volume, path: models/identity_b60/anchor_pool_v1.npz, sha256: 303be22cdd9f09f162d2bff5eb6a7027bd9114e389ce11d2592f27e9895c70a9}
-  noncalf_colour_v1: {space: volume, path: models/identity_b60/noncalf_colour_v1.json, sha256: 9a84b864ea20a3cc225079af93b93b3d68fde8bed1b253956566b7564e84fefd}
-  refine_v1: {space: volume, path: models/mask_refine_v1}
-  behaviour_bilstm: {space: volume, path: models/behaviour_bilstm_dinov3/best_bilstm_dinov3_vits.pt}
+  detector_segv1d: {space: volume, path: models/rfdetr_seg_calf/segv1d_r624/checkpoint_best_total.pth}
   es3_trunk: {space: volume, path: models/baselines/es3_trunk_tinyvit_l.pt}
 paper1:
   root: {space: volume, path: paper1_distillation}
@@ -69,59 +43,7 @@ paper1:
   efficiency: {space: volume, path: paper1_distillation/efficiency}
   scores: {space: volume, path: paper1_distillation/scores}
   calf_windows_protocol: {space: volume, path: paper1_distillation/protocol/calf_windows_v1.json}
-  calf_windows_frames: {space: volume, path: paper1_distillation/calf_windows/frames_v1}
   calf_windows_gt_pins: {"20240422": 0422-S, "20240423": 0423-S}
   teacher_targets:
     edinburgh: {space: volume, path: paper1_distillation/teacher_targets/edinburgh}
     pigtrack_train: {space: volume, path: paper1_distillation/teacher_targets/pigtrack_train}
-    tol_v1: {space: volume, path: Tol/Backbone_Features/train, read_only: true}
-    tol_v2: {space: volume, path: Tol/Backbone_Features/train_v2, read_only: true}
-  evidence:
-    edinburgh_metrics: {space: volume, path: paper1_distillation/evidence/edinburgh_2026-03/metrics}
-    edinburgh_mask_coordinates: {space: volume, path: paper1_distillation/evidence/edinburgh_2026-03/mask_coordinates}
-    memory_fix_equivalence: {space: volume, path: paper1_distillation/evidence/memory_fix_equivalence}
-    memory_profiling: {space: volume, path: paper1_distillation/evidence/memory_profiling}
-    profiling: {space: volume, path: Tol/Tracking_profile, read_only: true}
-    profiling_timing: {space: volume, path: Tol/Tracking_profile_timing, read_only: true}
-    v5eq_ref: {space: volume, path: Tol/Tracking_v5eq_ref, read_only: true}
-    v5eq_reg: {space: volume, path: Tol/Tracking_v5eq_reg, read_only: true}
-    v5floor_a100: {space: volume, path: Tol/Tracking_v5floor_a100, read_only: true}
-paper2:
-  root: {space: volume, path: paper2_calftrace}
-  tol_root: {space: volume, path: Tol, read_only: true}
-  train:
-    materials: {space: volume, path: paper2_calftrace/train}
-    tracking: {space: volume, path: Tol/Tracking_train, read_only: true}
-    relabel: {space: volume, path: Tol/Metadata/relabel_train_week, read_only: true}
-    targets_v1: {space: volume, path: Tol/Backbone_Features/train, read_only: true}
-    targets_v2: {space: volume, path: Tol/Backbone_Features/train_v2, read_only: true}
-    frames_v1: {space: volume, path: Tol/Frames/train, read_only: true}
-    frames_v2: {space: volume, path: Tol/Frames/train_v2, read_only: true}
-    detector_coco: {space: volume, path: Tol/Detector_COCO/segv1d, read_only: true}
-  val:
-    materials: {space: volume, path: paper2_calftrace/val}
-    gt_chain_masks: {space: volume, path: Tol/Tracking_v4v2, per_day: true, read_only: true}
-    teacher_windows: {space: volume, path: Tol/Tracking_teacher, read_only: true}
-  test:
-    materials: {space: volume, path: paper2_calftrace/test}
-    baseline_v4v2p2: {space: volume, path: Tol/Tracking_v4v2p2, per_day: true, read_only: true}
-  outputs:
-    masks_raw: {space: volume, path: Tol/Tracking_v5a10, per_day: true, read_only: true}
-    masks_refined: {space: volume, path: Tol/Tracking_v5a10_refined, per_day: true, read_only: true}
-    relabel: {space: volume, path: Tol/Metadata/relabel_v5a10, read_only: true}
-  code_snapshots: {space: volume, path: paper2_calftrace/code_snapshots}
-releases:
-  hf_dataset: {space: volume, path: releases/hf_dataset_calf_tracking_masks_7days/v1.0, title: "Tracking masks for 7 days on dairy calves", slug: calf-tracking-masks-7days}
-  hf_model_student: {space: volume, path: releases/hf_model_student/v1.0}
-  hf_model_detector: {space: volume, path: releases/hf_model_detector/v1.0}
-legacy:
-  tol_metrics: {space: volume, path: Tol, read_only: true}
-  edinburgh_teacher_masks: {space: mount, path: "Pig Behavior Edinburgh/Model_Distill/SAM3/Masks", read_only: true, note: "not for new code"}
-external:
-  edinburgh_2025: {space: mount, path: "Pig Behavior Edinburgh", read_only: true, note: "2025 SAM2-era folders only; copied folders are refused (D5)"}
-  behaviour_2025: {space: mount, path: Tol, read_only: true, note: "everything except Videos/"}
-admin:
-  registry: {space: volume, path: _admin/registry}
-  migration: {space: volume, path: _admin/migration}
-  probe: {space: volume, path: _admin/probe}
-  intake: {space: volume, path: _admin/intake/2026-10_local}
