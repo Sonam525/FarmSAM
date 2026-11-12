@@ -1,6 +1,6 @@
 # Checkpoints
 
-Three student checkpoints are on Hugging Face at [`Sonam5/FarmSAM`](https://huggingface.co/Sonam5/FarmSAM). GitHub holds no weights.
+Three student checkpoints and three RF-DETR detectors are on Hugging Face at [`Sonam5/FarmSAM`](https://huggingface.co/Sonam5/FarmSAM). GitHub holds no weights.
 
 Each student has the same architecture: TinyViT-21M-512 trunk plus a feature-pyramid head, 40,655,408 parameters. It replaces SAM 3's image backbone. You still need SAM 3's own tracker weights from Meta.
 
@@ -9,6 +9,18 @@ Each student has the same architecture: TinyViT-21M-512 trunk plus a feature-pyr
 | Edinburgh student | `edinburgh_noncommercial/edinburgh_student/` | `best_backbone_student.pt` | 650,867,753 | `9686b4c0f60e02251d8c2febee2029c1e7ebe74e85fbefda7e0c5daffc2075f2` |
 | PigTrack student | `pigtrack/pigtrack_student/` | `best_backbone_student_pigtrack.pt` | 650,834,744 | `c07140f2de80a5e9faf175bdb4fc071bb1064e4757b91c3eefe55e271e5da69c` |
 | Calf student (night-mined) | `calf/calf_student_night_mined/` | `best_backbone_student_v2.pt` | 325,420,983 | `ebf7a771bd5ac853ec1a44f209e5efe97bbdd4436a12c758d901634e2660376d` |
+
+## Detectors
+
+RF-DETR detectors for the detector-started runs ([RESULTS.md](RESULTS.md#with-an-rf-detr-detector)). Each folder also holds `detector.json` with the resolution, threshold, training data and test AP.
+
+| Detector | Folder on Hugging Face | File | Bytes | SHA-256 |
+|:---|:---|:---|---:|:---|
+| Calf, RF-DETR-Seg Small, 624 px | `detectors/calf_rfdetr_seg/` | `checkpoint_best_total.pth` | 136,459,491 | `163b73b1c3b0c2cb61aa70931990c1f79ddd1aa27f72da2d13dbc2606e0f7057` |
+| PigTrack, RF-DETR Small, 512 px | `detectors/pigtrack_rfdetr/` | `checkpoint_best_total.pth` | 127,449,329 | `c26492df2b527e9a75a530be43319455407e5ad11839ceb6be9d9f81c8cda72e` |
+| Edinburgh, RF-DETR Small, 512 px | `edinburgh_noncommercial/edinburgh_rfdetr/` | `checkpoint_best_total.pth` | 127,449,201 | `19a5d98d357f8e43583eef429a3e9b72b3a031b7525c94b3d4b687dc6d441d90` |
+
+Load one with `rfdetr==1.10.1`: `from_checkpoint(path, resolution=512)` (624 for the calf detector). Pass the resolution: the file does not store it. `load_rfdetr_detector` in [`benchmark/core/bench_core.py`](../benchmark/core/bench_core.py) does this. The pig results used a threshold of 0.70.
 
 ## Which one to use
 

@@ -10,7 +10,7 @@ None of these is copied into this repository, except where the "Use" column says
 | SAM 2.1 | Apache-2.0 | Baseline. Downloaded by the reader. |
 | EdgeTAM (`yonigozlan/EdgeTAM-hf`) | Apache-2.0 tag | Baseline. Downloaded by the reader. |
 | EfficientSAM3 | `apache-2.0` tag on the Hugging Face model card; no licence file found at the repository root. The upstream code sits in a fork of `facebookresearch/sam3`, whose LICENSE file is the SAM License, and the checkpoint's other tensors are SAM 3 parameters under the SAM License | Comparison encoder. Downloaded by the reader. The extracted trunk is never redistributed. `benchmark/core/es3_encoder.py` re-implements glue with the authors' module names and is outside the MIT grant: see [NOTICE.md](../NOTICE.md). |
-| RF-DETR | Apache-2.0 | Detector for the RF-DETR runs. Installed by pip. |
+| RF-DETR | Apache-2.0 | Detector for the RF-DETR runs. Installed by pip. Our fine-tuned pig detectors are on Hugging Face under Apache-2.0; the calf detector under the SAM License. |
 | TrackEval | See upstream | Scorer. Installed by pip at a pinned commit. Not vendored. |
 | py-motmetrics | See upstream | Cross-check scorer. Installed by pip. Not vendored. |
 | DINOv3 | DINOv3 License, 19 Aug 2025 | Only the preprint's behaviour notebook loads it. No DINOv3 weights or embeddings ship here. |

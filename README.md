@@ -100,13 +100,19 @@ You need SAM 3 access, unlabelled frames from your farm and a GPU. About 3,000 f
 
 ## Checkpoints
 
-Students are on Hugging Face at [`Sonam5/FarmSAM`](https://huggingface.co/Sonam5/FarmSAM). Hashes and loading notes are in [docs/CHECKPOINTS.md](docs/CHECKPOINTS.md).
+Students and detectors are on Hugging Face at [`Sonam5/FarmSAM`](https://huggingface.co/Sonam5/FarmSAM). Hashes and loading notes are in [docs/CHECKPOINTS.md](docs/CHECKPOINTS.md).
 
 | Student | Distilled on | Frames | Size | Terms |
 |:---|:---|---:|---:|:---|
 | [Calf student (night-mined)](https://huggingface.co/Sonam5/FarmSAM/tree/main/calf/calf_student_night_mined) | Dairy calves, day and night | 10,514 | 325 MB | SAM License |
 | [PigTrack student](https://huggingface.co/Sonam5/FarmSAM/tree/main/pigtrack/pigtrack_student) | PigTrack | 3,000 | 651 MB | SAM License |
 | [Edinburgh student](https://huggingface.co/Sonam5/FarmSAM/tree/main/edinburgh_noncommercial/edinburgh_student) | Edinburgh | 3,000 | 651 MB | SAM License, non-commercial |
+
+| RF-DETR detector | Trained on | Size | Terms |
+|:---|:---|---:|:---|
+| [Calf detector](https://huggingface.co/Sonam5/FarmSAM/tree/main/detectors/calf_rfdetr_seg), Seg Small, 624 px | Dairy calves, 18 and 19 April | 136 MB | SAM License |
+| [PigTrack detector](https://huggingface.co/Sonam5/FarmSAM/tree/main/detectors/pigtrack_rfdetr), Small, 512 px | PigTrack | 127 MB | Apache-2.0 |
+| [Edinburgh detector](https://huggingface.co/Sonam5/FarmSAM/tree/main/edinburgh_noncommercial/edinburgh_rfdetr), Small, 512 px | Edinburgh, from the PigTrack detector | 127 MB | Apache-2.0, non-commercial |
 
 ## Datasets and licences
 
@@ -122,9 +128,9 @@ Students are on Hugging Face at [`Sonam5/FarmSAM`](https://huggingface.co/Sonam5
 
 **Code** in this repository is MIT, except parts under other terms. See [NOTICE.md](NOTICE.md) and [LICENSES/THIRD_PARTY.md](LICENSES/THIRD_PARTY.md).
 
-**Weights** are not MIT. All students are released under the [SAM License](LICENSES/SAM_LICENSE.txt). They were trained to match SAM 3 backbone features and run inside SAM 3's tracker, so we apply its terms to be safe. If you pass a student on, you must do so under those terms and include a copy of the licence. Its trade control limits apply.
+**Weights** are not MIT. All students and the calf detector are released under the [SAM License](LICENSES/SAM_LICENSE.txt); the two pig detectors are fine-tuned RF-DETR models under Apache-2.0. The students were trained to match SAM 3 backbone features and run inside SAM 3's tracker, so we apply its terms to be safe. If you pass a student on, you must do so under those terms and include a copy of the licence. Its trade control limits apply.
 
-**Non-commercial limit.** The Edinburgh student, in `edinburgh_noncommercial/`, may be used for non-commercial purposes only. It was distilled on frames of the Edinburgh pig dataset, which is CC BY-NC. This limit comes from the data licence and applies on top of the SAM License.
+**Non-commercial limit.** The Edinburgh student and detector, in `edinburgh_noncommercial/`, may be used for non-commercial purposes only. Both were trained on frames of the Edinburgh pig dataset, which is CC BY-NC. This limit comes from the data licence and applies on top of the other terms.
 
 These notes are not legal advice.
 
