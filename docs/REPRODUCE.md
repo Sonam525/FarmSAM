@@ -32,7 +32,7 @@ Copy the files in [`benchmark/config/`](../benchmark/config/) to `paper1_distill
 | Any student | Access to the gated [`facebook/sam3`](https://huggingface.co/facebook/sam3) repository |
 | PigTrack | [PigTrack](https://doi.org/10.25625/P7VQTP) (CC BY 4.0), staged as sequences with seqmaps and a split file. The staging script is not in this repository |
 | Edinburgh | The [Edinburgh pig dataset](https://homepages.inf.ed.ac.uk/rbf/PIGDATA/) (CC BY-NC), for non-commercial work |
-| Calves | The calf dataset, which is on hold while people in the frames are masked. The calf reference masks and window files are not released either, so calf tracking and scoring cannot be rerun yet |
+| Calves | Camera FarmA_R1 of the [calf dataset](https://huggingface.co/datasets/Sonam5/Calf-Play-Behavior-Dataset) (CC0 1.0; doi:[10.57967/hf/11689](https://doi.org/10.57967/hf/11689); dataset paper [arXiv:2611.21706](https://arxiv.org/abs/2611.21706)). The calf reference masks and window files are not released, so the calf scores cannot be reproduced yet |
 
 ## Train a student
 

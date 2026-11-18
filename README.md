@@ -120,7 +120,7 @@ Students and detectors are on Hugging Face at [`Sonam5/FarmSAM`](https://hugging
 |:---|:---|:---|
 | [Edinburgh pig dataset](https://homepages.inf.ed.ac.uk/rbf/PIGDATA/) (Bergamini et al. 2021) | CC BY-NC | Unlabelled distillation frames and test clips. No Edinburgh frame is in this repository. |
 | [PigTrack](https://doi.org/10.25625/P7VQTP) (Henrich et al.) | CC BY 4.0 | Distillation and test. Figures show PigTrack frames with overlays added. |
-| [Dairy-calf dataset, FarmA_R1](https://huggingface.co/datasets/Sonam5/Calf-Play-Behavior-Dataset) | CC0 1.0 | Distillation and test. Access is on hold while people in the frames are masked. |
+| [Dairy-calf dataset, FarmA_R1](https://huggingface.co/datasets/Sonam5/Calf-Play-Behavior-Dataset) (doi:[10.57967/hf/11689](https://doi.org/10.57967/hf/11689); dataset paper [arXiv:2611.21706](https://arxiv.org/abs/2611.21706)) | CC0 1.0 | Distillation and test. |
 | [SAM 3](https://huggingface.co/facebook/sam3) | SAM License, gated | Teacher and tracker. Downloaded by you. Not redistributed. |
 | SAM 2.1, EdgeTAM | Apache-2.0 tags upstream | Baselines. Downloaded by you. Not redistributed. |
 | EfficientSAM3 | Apache-2.0 tag on the model card. The code sits in a fork of SAM 3 under the SAM License, and the checkpoint's other tensors are SAM 3 parameters | Baseline. Downloaded by you. Not redistributed. See [LICENSES/THIRD_PARTY.md](LICENSES/THIRD_PARTY.md). |
